@@ -20,7 +20,7 @@ Poskušali bomo odgovoriti na naslednja vprašanja:
 <br>
 
 Iz podatkov bomo poskusili dobiti informacije, ki bi bile uporabne za zavarovalnice. Poskušali bomo odgovoriti na ta vprašanja:
-1. Kateri demografski dejavniki (starost, spol, vozniški staž) povečujejo tveganje za povzročitev nesreče? Ali imamo določene osebe, za katere bi morale zavarovalnice računati višje premije?
+1. Kateri demografski dejavniki (starost, spol, vozniški staž) povečujejo tveganje za povzročitev nesreče? Ali obstajajo posamezniki, za katere bi morale zavarovalnice določiti višje premije?
 2. Ali lahko povemo, katere izmed nesreč kažejo na poskus prevare zavarovalnice (npr. malo prometna cesta, lažje poškodbe, ponoči)?
 
 
