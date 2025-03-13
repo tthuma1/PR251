@@ -1,6 +1,10 @@
 ## Analiza prometnih nesreč v Sloveniji
 
-Osnovne podatke bomo dobili iz podatkovne zbirke o nesrečah iz OPSI: https://podatki.gov.si/dataset/mnzpprometne-nesrece-od-leta-2009-dalje. Te podatke bomo združili s podatki o prometnih obremenitvah, novih registracijah in praznikih:
+Osnovne podatke bomo dobili iz podatkovne zbirke o nesrečah iz OPSI:
+- https://podatki.gov.si/dataset/mnzpprometne-nesrece-od-leta-2009-dalje
+- https://podatki.gov.si/dataset/mnzpprometne-nesrece-mesecno-od-leta-2019-dalje
+
+Te podatke bomo združili s podatki o prometnih obremenitvah, novih registracijah in praznikih:
 - https://podatki.gov.si/dataset/pldp-karte-prometnih-obremenitev
 - https://podatki.gov.si/dataset/surs2222100s
 - https://podatki.gov.si/dataset/seznam-praznikov-in-dela-prostih-dni-v-republiki-sloveniji
@@ -23,6 +27,7 @@ Iz podatkov bomo poskusili dobiti informacije, ki bi bile uporabne za zavarovaln
 1. Kateri demografski dejavniki (starost, spol, vozniški staž) povečujejo tveganje za povzročitev nesreče? Ali obstajajo posamezniki, za katere bi morale zavarovalnice določiti višje premije?
 2. Ali lahko povemo, katere izmed nesreč kažejo na poskus prevare zavarovalnice (npr. malo prometna cesta, lažje poškodbe, ponoči)?
 
+<br>
 
 Pri odgovorih na posamezna vprašanja si bomo pomagali z ustreznimi vizualizacijami (npr. prikaz na zemljevidu). Če nam podani podatki iz slovenskih cest ne bodo dali dovolj novih znanj, si bomo pomagali še s podatkovnimi zbirkami o drugih državah:
 - https://www.kaggle.com/datasets/jacksondivakarr/car-crash-dataset
