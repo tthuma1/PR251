@@ -1,12 +1,10 @@
-## Analiza prometnih nesreč v Sloveniji
+# Analiza prometnih nesreč v Sloveniji
 
-Opis problema: Iz podatkov o prometnih nesrečah v Sloveniji in sorodnih podatkovnih zbirk bomo skušali najti uporabne vzorce. Najdene ugotovitve bi
+**Opis problema**: Iz podatkov o prometnih nesrečah v Sloveniji in sorodnih podatkovnih zbirk bomo skušali najti uporabne vzorce. Najdene ugotovitve bi
 se lahko uporabljale za določanje glavnih ciljev javnih iniciativ za večjo prometno varnost, pomoč avtomobilskim zavarovalnicam pri poslovanju ter
 pomoč policistom pri popisovanju posamezne nesreče.
 
-<br>
-
-Poskušali bomo odgovoriti na naslednja vprašanja:
+Za pomoč javnih iniciativam na bomo skušali odgovoriti na naslednja vprašanja:
 1. Kakšna je korelacija med prometnimi nesrečami in obremenitvijo cest? Ali obstajajo odseki z malo prometa, ampak veliko nesrečami?
 2. Ali večje število novih registracij poveča število nesreč?
 3. Ali se na posameznih odsekih nesreče dogajajo pod podobnimi razmerami na cesti in vremenskimi razmerami?
@@ -26,6 +24,9 @@ Iz podatkov bomo poskusili tudi dobiti informacije, ki bi bile uporabne za zavar
 Za pomoč policistom pri popisovanju nesreče bomo poskusili predvideti posamezne atribute, glede na že vpisane vrednosti. Najprej se bomo osredotočili na naslednje:
 1. Napoved resnosti poškodb glede na stanje vozišča.
 
+
+### Podatki
+
 Osnovne podatke bomo dobili iz podatkovne zbirke o nesrečah iz OPSI:
 - https://podatki.gov.si/dataset/mnzpprometne-nesrece-od-leta-2009-dalje
 - https://podatki.gov.si/dataset/mnzpprometne-nesrece-mesecno-od-leta-2019-dalje
@@ -35,7 +36,7 @@ Te podatke bomo združili s podatki o prometnih obremenitvah, novih registracija
 - https://podatki.gov.si/dataset/surs2222100s
 - https://podatki.gov.si/dataset/seznam-praznikov-in-dela-prostih-dni-v-republiki-sloveniji
 
-Pri odgovorih na posamezna vprašanja si bomo pomagali z ustreznimi vizualizacijami (npr. prikaz na zemljevidu). Če nam podani podatki iz slovenskih cest ne bodo dali dovolj novih znanj, si bomo pomagali še s podatkovnimi zbirkami o drugih državah:
+Če nam podani podatki iz slovenskih cest ne bodo dali dovolj novih znanj, si bomo pomagali še s podatkovnimi zbirkami o drugih državah:
 - https://www.kaggle.com/datasets/jacksondivakarr/car-crash-dataset
 - https://www.kaggle.com/datasets/arpan129/insurance-fraud-detection
 
