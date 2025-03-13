@@ -36,7 +36,7 @@ Te podatke bomo združili s podatki o prometnih obremenitvah, novih registracija
 - https://podatki.gov.si/dataset/surs2222100s
 - https://podatki.gov.si/dataset/seznam-praznikov-in-dela-prostih-dni-v-republiki-sloveniji
 
-Če nam podani podatki iz slovenskih cest ne bodo dali dovolj novih znanj, si bomo pomagali še s podatkovnimi zbirkami o drugih državah:
+Vsi našteti podatki so zapisani v obliki tabel. Če nam podani podatki iz slovenskih cest ne bodo dali dovolj novih znanj, si bomo pomagali še s podatkovnimi zbirkami o drugih državah:
 - https://www.kaggle.com/datasets/jacksondivakarr/car-crash-dataset
 - https://www.kaggle.com/datasets/arpan129/insurance-fraud-detection
 
