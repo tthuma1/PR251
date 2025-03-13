@@ -13,5 +13,8 @@ Poskušali bomo odgovoriti na naslednja vprašanja in hipoteze:
 5. Ali lahko povemo, katere izmed nesreč kažejo na poskus prevare zavarovalnice (npr. malo prometna cesta, lažje poškodbe, ponoči)?
 6. Kateri odseki cest skozi leta postajajo nevarnejši in kateri varnejši?
 7. V katerih regijah je največ nesreč pod vplivom alkohola.
+8. Ali določene starostne skupine utrpijo hujše poškodbe?
+9. Napoved resnosti poškodb glede na stanje vozišča. To bi lahko pomagalo policistom pri hitrejšem vpisovanju nesreč s predlaganimi vrednostmi.
+10. Ali je ob praznikih več nesreč? Seznam praznikov bomo dobili iz naslednje zbirke podatkov: https://podatki.gov.si/dataset/seznam-praznikov-in-dela-prostih-dni-v-republiki-sloveniji
 
 Kot eno izmed vizualizacij bomo vključili pogled nesreč na zemljevidu Slovenije.
