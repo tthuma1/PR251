@@ -1,0 +1,1 @@
+Preberi [osnutek](osnutek.md).
