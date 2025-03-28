@@ -1,6 +1,8 @@
 ## Analiza prodaje nepremičnin v Sloveniji
 
-Vprašanja:
+**Opis problema:** Z obdelavo podatkov o prodaji nepremičnin bomo odgovarjali na vprašanja, ki lahko pomagajo prodajalcem, gradbenikom in kupcem pri načrtovanju prodaje, gradnje ali nakupa nepremičnine.
+
+**Vprašanja:**
 - Katera spletna stran za prodajo nepremičnin ponuja najboljše ponudbe (nepremicnine.net, mojikvadrati.com, ljubljananepremicnine.si …)?
 - V katerih lastnostih se razlikujejo novogradnje in starejše nepremičnine (npr. energijski razred)
 - V katerih krajih se ponuja najboljše razmerje med ceno nepreminčnin in lastnostmi kraja (število podjetij, šol, vrtcev ...)
