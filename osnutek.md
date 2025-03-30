@@ -2,7 +2,7 @@
 
 **Opis problema:** Z obdelavo podatkov o prodaji nepremičnin bomo odgovarjali na vprašanja, ki lahko pomagajo prodajalcem, gradbenikom in kupcem pri načrtovanju prodaje, gradnje ali nakupa nepremičnine.
 
-**Vprašanja o cenah:**
+**Vprašanja o cenah**
 - Katera spletna stran za prodajo nepremičnin ponuja najboljšo ceno na m2 (nepremicnine.net, mojikvadrati.com, bolha.si)?
 - Kako starost nepremičnine vpliva na ceno kvadratnega metra?
 - Ali oddaljenost od npr. avtobusnih postaj vplivajo na ceno?
