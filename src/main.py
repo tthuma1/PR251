@@ -9,7 +9,7 @@ with open("mojikvadratilinks.txt", "r", encoding="utf-8") as f:
 
 # Shranimo HTML vsebine
 for i, url in enumerate(urls):
-    if i+1 <= 20: continue
+    if i+1 <= 6348: continue
     try:
         print(f"[{i+1}/{len(urls)}] Obiskujem: {url}")
         response = scraper.get(url)
