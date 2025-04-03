@@ -55,7 +55,7 @@ def extract_data_from_html(file_path):
         znacilnosti_list = []
         for dt, dd in zip(specs[1].find_all("dt"), specs[1].find_all("dd")):
             key = dt.get_text(strip=True)
-            values = "|".join([span.get_text(strip=True) for span in dd.find_all("span")])
+            values = "/".join([span.get_text(strip=True) for span in dd.find_all("span")])
             if key and values:
                 znacilnosti_list.append(f"{key}={values}")
         data["znacilnosti"] = "|".join(znacilnosti_list)
@@ -85,7 +85,7 @@ def main():
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         
-        for i in range(1, 7001):
+        for i in range(1, 40):
             file_path = os.path.join(input_dir, f"html_vsebina_{i}.html")
             if os.path.exists(file_path):
                 data = extract_data_from_html(file_path)
