@@ -7,9 +7,12 @@ scraper = cloudscraper.create_scraper()
 with open("mojikvadratilinks.txt", "r", encoding="utf-8") as f:
     urls = [line.strip() for line in f if line.strip()]
 
+with open("missing.txt", "r", encoding="utf-8") as f:
+    missing = [int(line.strip()) for line in f if line.strip()]
+
 # Shranimo HTML vsebine
 for i, url in enumerate(urls):
-    if i+1 <= 6348: continue
+    if i+1 not in [568,569,570]: continue
     try:
         print(f"[{i+1}/{len(urls)}] Obiskujem: {url}")
         response = scraper.get(url)
@@ -24,7 +27,7 @@ for i, url in enumerate(urls):
             file.write(response.text)
         
         print(f"✅ Shranjeno: html_vsebina_{i+1}.html")
-        time.sleep(10)
+        time.sleep(5)
 
     except Exception as e:
         print(f"❌ Napaka pri URL: {url} - {e}")

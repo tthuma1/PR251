@@ -1,16 +1,56 @@
 import os
 import csv
 from bs4 import BeautifulSoup
+from geopy.geocoders import Nominatim
+import time
 
-def extract_data_from_html(file_path):
+# Initialize the geolocator
+geolocator = Nominatim(user_agent="geo_lookup")
+
+links = []
+with open("mojikvadratilinks.txt", "r") as file:
+    links = list(map(lambda x: x.strip("\n"), file.readlines()))
+
+
+memorised_locations = dict()
+# print(links)
+def extract_data_from_html(file_path, house_id):
+    global links
+    global memorised_locations
+    print("processing id:", house_id)
     with open(file_path, "r", encoding="utf-8") as file:
         soup = BeautifulSoup(file, "html.parser")
     
     data = {}
+    data["id"] = house_id
     
     # Extract naslov
     naslov_tag = soup.find("h1")
     data["naslov"] = naslov_tag.get_text(strip=True) if naslov_tag else ""
+
+    split_naslov = data["naslov"].split(",")
+    for i in range(len(split_naslov)-1, -1, -1):
+        kraj = split_naslov[i].strip()
+        if kraj in memorised_locations:
+            location = memorised_locations[kraj]
+            data["longitude"] = location.longitude
+            data["latitude"] = location.latitude
+
+        try:
+            location = geolocator.geocode(kraj)
+            if location:
+                data["longitude"] = location.longitude
+                data["latitude"] = location.latitude
+                memorised_locations[kraj] = location
+                time.sleep(1)
+                break
+            else:
+                print(f"Could not find coordinates for: {kraj}")
+                time.sleep(1)
+        except Exception as e:
+            print(f"Error processing {kraj}: {e}")
+            time.sleep(1)
+
     
     # Extract detail-category labels
     detail_category = soup.find(class_="detail-category")
@@ -66,29 +106,31 @@ def extract_data_from_html(file_path):
     description_section = soup.find(id="description-section")
     if description_section:
         divs = description_section.find_all("div")
-        data["opis"] = divs[1].get_text(strip=True) if len(divs) > 1 else ""
+        data["opis"] = (divs[1].get_text(strip=True) if len(divs) > 1 else "").replace("\n", " ")
     else:
         data["opis"] = ""
+
+    data["url"] = links[house_id-1]
     
     return data
 
 def main():
     input_dir = "../data/kvadrati"
-    output_file = "kvadrati.csv"
+    output_file = "kvadrati2.csv"
     
     fieldnames = [
-        "naslov", "vrsta_prodaje", "vrsta", "tip", "velikost", "leto_gradnje", "cena",
-        "prodajalec_oseba", "prodajalec_agencija", "splosno", "znacilnosti", "opis"
+        "id", "naslov", "latitude", "longitude", "vrsta_prodaje", "vrsta", "tip", "velikost", "leto_gradnje", "cena",
+        "prodajalec_oseba", "prodajalec_agencija", "splosno", "znacilnosti", "opis", "url"
     ]
     
     with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         
-        for i in range(1, 40):
+        for i in range(568,571):
             file_path = os.path.join(input_dir, f"html_vsebina_{i}.html")
             if os.path.exists(file_path):
-                data = extract_data_from_html(file_path)
+                data = extract_data_from_html(file_path, i)
                 writer.writerow(data)
             else:
                 print(f"File {file_path} not found, skipping...")
