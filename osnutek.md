@@ -11,7 +11,7 @@
 - Ali lahko s podatki o prebivalstvu in gospodarstvu (št. prebivalcev, dohodki gospodinjstev, število podjetij in velikost podjetij …) napovemo ceno stanovanj na m2?
 - Kako prodajalec vpliva na ceno nepremičnine na m2 (podjetje ali posameznik)? Mogoče analiza vseh nepremičnin od enega ponudnika.
 - Napoved najvišje sprejemljive cene na javnih dražbah.
-- Določitev cenovnega razreda neke nepremičnine glede na dane atribute (z npr. klasifikacijskimi drevesi).
+- Določitev cenovnega razreda neke nepremičnine glede na dane atribute (z npr. klasifikacijskimi drevesi ali naivnim Bayesom).
 
 **Vprašanja o novogradnjah**
 - Napovedovanje koliko je hiša stara iz opisa - pomoč prodajalcem za pisanje primernih opisov.
