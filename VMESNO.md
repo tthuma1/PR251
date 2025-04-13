@@ -68,3 +68,5 @@ Pogledali smo, kolikšen delež nepremičninskega trga zaseda posamezna agencija
 
 ![alt text](slike/agencije_delezi.png)
 ![alt text](slike/cene_agencije.png)
+
+Vidimo, da največji delež zaseda CENTURY 21 agencija, ogromno pa je majhnih agencij, ki spadajo pod "ostalo". Povprečna cena je največja pri agenciji Ljubljana nepremičnine, najcenejša pa pri RENES d.o.o., ki se ukvarja večino s prodajo zanemarjenih hiš.
