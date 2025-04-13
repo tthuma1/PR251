@@ -18,6 +18,8 @@ Podatke smo zbrali v `csv` datotekah.
 
 Za branj podatkov v Pythonu smo uporabili `pandas` knjižnico, grafe pa smo risali z `matplotlib` in `seaborn`. Za risanje podatkov na zemljevidu smo uporabili `cartopy` knjižnico.
 
+### Risanje cen
+
 Za začetek smo pogledali kako se cene odražajo na zemljevidu. Na `mojikvadrati.net` je bila večina cen napisana kot cena za celotno nepremičnino, zato smo to najprej pretvorili v ceno na kvadratni meter. Kljub temu se še vedno najdejo oglaševalci, ki dajo svojim oglasom napačne enote za cene.
 
 Poglejmo si najprej zemljevid, kjer so prikazane vse cene hiš in stanovanj skupaj s ceno.
@@ -50,5 +52,19 @@ B_fit = [beta.pdf(x, *pars_b) for x in xb]
 
 ![alt text](slike/histogram_beta.png)
 
+Če vzamemo stopnjo značilnosti za osamelce $\alpha = 0,05$, dobimo, da so nenavadno poceni nepremičnine pod 540 EUR/m2, nenavadno drage pa nad 7780 EUR/m2. Pod osamelce na spodnji strani spadajo razne napol podrte in zapuščene hiše, na zgornji pa luksuzni penthousi v Ljubljani, obali in tujini. Posebej izstopa Ljubljanski Schellenburg.
 
 Pri `nepremicnine.net` ni podane enote za ceno, ampak večina jih navaja ceno za celo nepremičnino. Da ignoriramo vrednosti, ki očitno niso pravilne, smo se omejili med 50.000 in 100.000.000 EUR.
+
+### Risanje starosti
+
+Nadaljevali smo s histogramom leta gradnje. Pri tem smo ugotovili, da je izmed vseh oglasov okoli 22% novogradenj, nepremičnine, zgrajene pred letom 2023 pa so približno enakomerno porazdeljene.
+
+![alt text](slike/histogram_starosti.png)
+
+### Risanje ponudnikov
+
+Pogledali smo, kolikšen delež nepremičninskega trga zaseda posamezna agencija in katera ima najboljše ponudbe v povprečju.
+
+![alt text](slike/agencije_delezi.png)
+![alt text](slike/cene_agencije.png)
