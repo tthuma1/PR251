@@ -1,4 +1,4 @@
-# It's FRI real estate
+# Ko kvadratni metri spregovorijo – ali so slovenske nepremičnine "kuhane"?​
 
 ## Uvod
 
