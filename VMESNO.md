@@ -2,15 +2,15 @@
 
 ## Uvod
 
-TODO vprašanja
+Do vmesnega poročila smo zbrali vse ustrezne podatke in jih predstavili z raznimi vizualizacijami statistik. Z vizualizacijami smo tudi pogledali kako različni atributi vplivajo na ceno nepremičnin.
 
 ## Zajemanje podatkov
 
 Podatke smo zajemali iz spletnih strani `nepremicnine.net`, `mojikvadrati.com` in `bolha.com`.
 
-`nepremicnine.net` imajo spletno zaščito pred roboti s strani Cloudflare. Za obhod te zaščite smo uporabili knjižnico `hrequests`. Podatke smo dobili iz HTML-ja strani, saj nima ustreznega odprtega API-ja. Veliko pomembnih informacij je tukaj navedenih v opisu, zaradi česar jih je težko izluščiti. Za izluščanje podatkov iz opsia smo mislili uporabiti LLM, ampak je bilo preveč vrstic, da bi v normalnem času sprocesiral vso besedilo. Za branje podatkov iz HTML strukture smo uporabili knjižnico `BeautifulSoup`. Vnosovov na `nepremicnine.net` je ogromno (nad 60000). Da smo vse podatke izluščili v dovolj kratkem času, smo prošnje paralelizirali.
+Za obhod raznih zaščit strani pred roboti smo uporabili knjižnico `hrequests`. Podatke smo dobili iz HTML-ja strani, saj nima ustreznega odprtega API-ja. Veliko pomembnih informacij je tukaj navedenih v opisu, zaradi česar jih je težko izluščiti. Za branje podatkov iz HTML strukture smo uporabili knjižnico `BeautifulSoup`. Vnosovov na `nepremicnine.net` je ogromno (nad 60000). Da smo vse podatke izluščili v dovolj kratkem času, smo prošnje paralelizirali.
 
-Za `mojikvadrati.com` smo prav tako podatke dobili iz HTML, ampak tu so veliko bolje strukturirani. Pomembni podatkih so lepo napisani v naslovih in seznamih. Na tej podatkovni zbirki smo vnosom dodali še podatke o koordinatah. Za to smo uporabili knjižnico `geopy`. Koordinate smo dobili iz kraja v katerem je nepremičnina. Včasih pa je skripta izbrala napačne koordinate, ko obstajajo kraji z enakimi imeni v drugih državah. Te napake smo zaenkrat zanemarili, ker jih je težko odkriti.
+Za `mojikvadrati.com` smo prav tako podatke dobili iz HTML, ampak tu so veliko bolje strukturirani. Na tej podatkovni zbirki smo vnosom dodali še podatke o koordinatah. Za to smo uporabili knjižnico `geopy`. Koordinate smo dobili iz naslovov oglasov, vendar zaradi narave podatkov včasih koordinate niso točne.
 
 Podatke smo zbrali v `csv` datotekah.
 
@@ -20,27 +20,15 @@ Za branj podatkov v Pythonu smo uporabili `pandas` knjižnico, grafe pa smo risa
 
 ### Risanje cen
 
-Za začetek smo pogledali kako se cene odražajo na zemljevidu. Na `mojikvadrati.net` je bila večina cen napisana kot cena za celotno nepremičnino, zato smo to najprej pretvorili v ceno na kvadratni meter. Kljub temu se še vedno najdejo oglaševalci, ki dajo svojim oglasom napačne enote za cene.
+Za začetek smo pogledali kako se cene odražajo na zemljevidu.
 
 Poglejmo si najprej zemljevid, kjer so prikazane vse cene hiš in stanovanj skupaj s ceno.
 
 ![alt text](slike/mapa_cene.png)
 
-Vidimo, da se pojavijo območja, kjer je veliko dragih nepremičnin, kot sta Ljubljana in obala. Nekaj dragih nepremičnin se pojavi še v krajih, od koder se ljudje pogosto vozijo v Ljubljano, kot so Kranj, Domžale in Grosuplje. Drage nepremičnine se pojavijo še v Jesenicah, Kranjski gori in Gorici. Zanimimvo je, da je v okolici Maribora in v Savinjski regiji na voljo veliko nepremičnin. Ki pa so relativno poceni.
+Vidimo, da se pojavijo območja, kjer je veliko dragih nepremičnin, kot sta Ljubljana in obala. Nekaj dragih nepremičnin se pojavi še v krajih, od koder se ljudje pogosto vozijo v Ljubljano, kot so Kranj, Domžale in Grosuplje. Drage nepremičnine se pojavijo še v Jesenicah, Kranjski gori in Gorici. Zanimimvo je, da je v okolici Maribora in v Savinjski regiji na voljo veliko nepremičnin, ki pa so relativno poceni.
 
-Nato smo cene za stanovanja in hiše narisali na histogramu, da smo dobili porazdelitev in iz tega določili mejo za osamelce. Pri tem smo omejili ceno na 15.000 EUR/m2, da se izognemo napačno vnešenim podatkom.
-
-```Python
-hs_df = hs_df[hs_df["cena_na_m2"] <= 15000]
-plt.figure()
-plt.hist(hs_df["cena_na_m2"], bins="sqrt")
-plt.title('Histogram cene nepremičnin')
-plt.xlabel('Cena na m2')
-plt.ylabel('Število nepremičnin')
-plt.legend();   
-```
-
-![alt text](slike/histogram_cene.png)
+Nato smo cene za stanovanja in hiše narisali na histogramu, da smo dobili porazdelitev in iz tega določili mejo za osamelce.
 
 Cena sledi približno Beta porazdelitvi.
 
@@ -67,7 +55,7 @@ Nadaljevali smo s histogramom leta gradnje. Pri tem smo ugotovili, da je izmed v
 Pogledali smo, kolikšen delež nepremičninskega trga zaseda posamezna agencija in katera ima najboljše ponudbe v povprečju.
 
 ![alt text](slike/agencije_delezi.png)
-![alt text](slike/cene_agencije.png)
+![alt text](slike/prodajalci_cene.png)
 
 Vidimo, da največji delež zaseda CENTURY 21 agencija, ogromno pa je majhnih agencij, ki spadajo pod "ostalo". Povprečna cena je največja pri agenciji Ljubljana nepremičnine, najcenejša pa pri RENES d.o.o., ki se ukvarja večino s prodajo zanemarjenih hiš.
 
@@ -86,3 +74,29 @@ Odgovor na vprašanje kje je največ novogradenj smo spet dobili na zemljevidu.
 <img src="slike/novogradnje_map.png" width="600" />
 
 Vidimo, da je ta mapa zelo podobna mapi dragih nepremičnin. Večina novogradenj je v večjih slovenskih mestih, prav tako pa jih je kar nekaj blizu meje na hrvaški obali.
+
+### Cena v odvnisnosti od demografskih atributov
+
+Pogledali smo, kako se cena na kvadratni meter spreminja z regijo in njenimi podatki o prebivalstvu.
+
+<img src="slike/regije_cene.png" />
+
+Na prvem stolpičnem diagramu lahko vidimo, da največje razmerje med povprečno ceno stanovanja in številom prebivalcev pripada Obalno-kraški regiji. To je predvidoma res, zaradi velikega števila počitniških hiš, katerih prebivalci nimajo stalnega naslova v tej regiji. Prav tako pa je presenetljivo, da je regija, ki vsebuje Ljubljano - osrednjeslovenska regija - zelo nizko uvrščena. Do tega pride zaradi velikega števila prebivalcev. Nekakšen popravek tega lahko vidimo na naslednjem diagramu, ki prikazuje razmerje med povprečno ceno stanovanja in povprečno neto plačo prebivalcev te regije. Na nek način prikaže, koliko mesecev bi prebivalec neke regije moral delati, da bi si lahko privoščil povprečno stanovanje/hišo, brez da upoštevamo druge mesečne stroške. Na tem diagramu je osrednjeslovenska regija druga po vrsti, kar ni presenetljivo.
+
+Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v regijah, kjer je več ločitev. Novo ločeni ljudje namreč običajno rabijo tudi novo nepremičnino.
+
+<img src="slike/locitve_ratio.png" width=900/>
+
+V Obalno-kraški ločitve najverjetneje nimajo vpliva na število nepremičnin, ker je regija bolj turistično nagnjena. Lahko bi sklepali, da pa v regijah na koncu grafa, torej Zasavska, Koroška, Posavska in Savinjska, verjetno vidita dodatno nepremičnino za vsako ločitev.
+
+### Čas za adaptacijo nepremičnin
+
+<img src="slike/prenovitve.png" width=900/>
+
+Vidimo, da je večina nepremičnin bila obnovljena v ~100 do 200 letih izgradnje, vendar se pa število zmanjša pri okoli ~500 letih. To so večinoma "rustične nepremičnine" v naravi, gradovi ...
+
+### Vikendi
+
+<img src="slike/vikendi.png" width=800/>
+
+Italija je za vikende najdražja, ima pa le okoli 40 nepremičnin naprodaj. Hrvaška jih ima več, okoli 400. Avstrija je najcenejša, ampak je podatek iz le ene nepremičnine. Ostale države po Evropi večinoma nimajo nič naprodaj, ali pa so v isti situaciji kot Avstrija.
