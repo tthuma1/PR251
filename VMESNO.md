@@ -40,5 +40,15 @@ plt.legend();
 
 ![alt text](slike/histogram_cene.png)
 
+Cena sledi približno Beta porazdelitvi.
+
+```Python
+pars_b = beta.fit(cena_na_m2)
+xb = np.linspace(cena_na_m2.min(), cena_na_m2.max(), 1000)
+B_fit = [beta.pdf(x, *pars_b) for x in xb]
+```
+
+![alt text](slike/histogram_beta.png)
+
 
 Pri `nepremicnine.net` ni podane enote za ceno, ampak večina jih navaja ceno za celo nepremičnino. Da ignoriramo vrednosti, ki očitno niso pravilne, smo se omejili med 50.000 in 100.000.000 EUR.
