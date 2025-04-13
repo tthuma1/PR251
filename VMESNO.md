@@ -70,3 +70,19 @@ Pogledali smo, kolikšen delež nepremičninskega trga zaseda posamezna agencija
 ![alt text](slike/cene_agencije.png)
 
 Vidimo, da največji delež zaseda CENTURY 21 agencija, ogromno pa je majhnih agencij, ki spadajo pod "ostalo". Povprečna cena je največja pri agenciji Ljubljana nepremičnine, najcenejša pa pri RENES d.o.o., ki se ukvarja večino s prodajo zanemarjenih hiš.
+
+### Povezava med starostjo in ceno
+
+Da smo preverili, ali starost gradnje vpliva na ceno, smo narisali scatter plot in preverili Pearsonov koeficient.
+
+<img src="slike/cena_leta.png" width="500" />
+
+Vidimo, da starost gradnje ne korelira s ceno. To nam pove tudi nizek Pearsonov koeficient ($0,04$). Stare hiše so namreč pogosto adaptirane, zaradi česar jim vrednost ne pada.
+
+### Zemljevid novogradenj
+
+Odgovor na vprašanje kje je največ novogradenj smo spet dobili na zemljevidu.
+
+<img src="slike/novogradnje_map.png" width="600" />
+
+Vidimo, da je ta mapa zelo podobna mapi dragih nepremičnin. Večina novogradenj je v večjih slovenskih mestih, prav tako pa jih je kar nekaj blizu meje na hrvaški obali.
