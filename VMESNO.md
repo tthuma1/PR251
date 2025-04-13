@@ -1,1 +1,44 @@
-Podatke smo zajemali iz spletnih strani `nepremicnine.net`, `mojikvadrati.net` in `bolha.si`. `nepremicnine.net` imajo spletno zaščito pred roboti s strani Cloudflare. Za obhod te zaščite smo uporabili knjižnico `hrequests`. Podatke smo dobili iz HTML-ja strani, saj nima ustreznega odprtega API-ja. Veliko pomembnih informacij je tukaj navedenih v opisu, zaradi česar jih je težko izluščiti. Za izluščanje podatkov iz opsia smo mislili uporabiti LLM, ampak je bilo preveč vrstic, da bi v normalnem času sprocesiral vso besedilo. Za branje podatkov iz HTML strukture smo uporabili knjižnico `BeautifulSoup`. Vnosovov na `nepremicnine.net` je ogromno (nad )
+# It's FRI real estate
+
+## Uvod
+
+TODO vprašanja
+
+## Zajemanje podatkov
+
+Podatke smo zajemali iz spletnih strani `nepremicnine.net`, `mojikvadrati.com` in `bolha.com`.
+
+`nepremicnine.net` imajo spletno zaščito pred roboti s strani Cloudflare. Za obhod te zaščite smo uporabili knjižnico `hrequests`. Podatke smo dobili iz HTML-ja strani, saj nima ustreznega odprtega API-ja. Veliko pomembnih informacij je tukaj navedenih v opisu, zaradi česar jih je težko izluščiti. Za izluščanje podatkov iz opsia smo mislili uporabiti LLM, ampak je bilo preveč vrstic, da bi v normalnem času sprocesiral vso besedilo. Za branje podatkov iz HTML strukture smo uporabili knjižnico `BeautifulSoup`. Vnosovov na `nepremicnine.net` je ogromno (nad 60000). Da smo vse podatke izluščili v dovolj kratkem času, smo prošnje paralelizirali.
+
+Za `mojikvadrati.com` smo prav tako podatke dobili iz HTML, ampak tu so veliko bolje strukturirani. Pomembni podatkih so lepo napisani v naslovih in seznamih. Na tej podatkovni zbirki smo vnosom dodali še podatke o koordinatah. Za to smo uporabili knjižnico `geopy`. Koordinate smo dobili iz kraja v katerem je nepremičnina. Včasih pa je skripta izbrala napačne koordinate, ko obstajajo kraji z enakimi imeni v drugih državah. Te napake smo zaenkrat zanemarili, ker jih je težko odkriti.
+
+Podatke smo zbrali v `csv` datotekah.
+
+## Vizualizacije
+
+Za branj podatkov v Pythonu smo uporabili `pandas` knjižnico, grafe pa smo risali z `matplotlib` in `seaborn`. Za risanje podatkov na zemljevidu smo uporabili `cartopy` knjižnico.
+
+Za začetek smo pogledali kako se cene odražajo na zemljevidu. Na `mojikvadrati.net` je bila večina cen napisana kot cena za celotno nepremičnino, zato smo to najprej pretvorili v ceno na kvadratni meter. Kljub temu se še vedno najdejo oglaševalci, ki dajo svojim oglasom napačne enote za cene.
+
+Poglejmo si najprej zemljevid, kjer so prikazane vse cene hiš in stanovanj skupaj s ceno.
+
+![alt text](slike/mapa_cene.png)
+
+Vidimo, da se pojavijo območja, kjer je veliko dragih nepremičnin, kot sta Ljubljana in obala. Nekaj dragih nepremičnin se pojavi še v krajih, od koder se ljudje pogosto vozijo v Ljubljano, kot so Kranj, Domžale in Grosuplje. Drage nepremičnine se pojavijo še v Jesenicah, Kranjski gori in Gorici. Zanimimvo je, da je v okolici Maribora in v Savinjski regiji na voljo veliko nepremičnin. Ki pa so relativno poceni.
+
+Nato smo cene za stanovanja in hiše narisali na histogramu, da smo dobili porazdelitev in iz tega določili mejo za osamelce. Pri tem smo omejili ceno na 15.000 EUR/m2, da se izognemo napačno vnešenim podatkom.
+
+```Python
+hs_df = hs_df[hs_df["cena_na_m2"] <= 15000]
+plt.figure()
+plt.hist(hs_df["cena_na_m2"], bins="sqrt")
+plt.title('Histogram cene nepremičnin')
+plt.xlabel('Cena na m2')
+plt.ylabel('Število nepremičnin')
+plt.legend();   
+```
+
+![alt text](slike/histogram_cene.png)
+
+
+Pri `nepremicnine.net` ni podane enote za ceno, ampak večina jih navaja ceno za celo nepremičnino. Da ignoriramo vrednosti, ki očitno niso pravilne, smo se omejili med 50.000 in 100.000.000 EUR.
