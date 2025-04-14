@@ -24,7 +24,7 @@ Za začetek smo pogledali kako se cene odražajo na zemljevidu.
 
 Poglejmo si najprej zemljevid, kjer so prikazane vse cene hiš in stanovanj skupaj s ceno.
 
-![alt text](slike/mapa_cene.png)
+<img src="slike/mapa_cene.png" width=1000/>
 
 Vidimo, da se pojavijo območja, kjer je veliko dragih nepremičnin, kot sta Ljubljana in obala. Nekaj dragih nepremičnin se pojavi še v krajih, od koder se ljudje pogosto vozijo v Ljubljano, kot so Kranj, Domžale in Grosuplje. Drage nepremičnine se pojavijo še v Jesenicah, Kranjski gori in Gorici. Zanimimvo je, da je v okolici Maribora in v Savinjski regiji na voljo veliko nepremičnin, ki pa so relativno poceni.
 
@@ -38,7 +38,7 @@ xb = np.linspace(cena_na_m2.min(), cena_na_m2.max(), 1000)
 B_fit = [beta.pdf(x, *pars_b) for x in xb]
 ```
 
-![alt text](slike/histogram_beta.png)
+<img src="slike/histogram_beta.png" width=600/>
 
 Če vzamemo stopnjo značilnosti za osamelce $\alpha = 0,05$, dobimo, da so nenavadno poceni nepremičnine pod 540 EUR/m2, nenavadno drage pa nad 7780 EUR/m2. Pod osamelce na spodnji strani spadajo razne napol podrte in zapuščene hiše, na zgornji pa luksuzni penthousi v Ljubljani, obali in tujini. Posebej izstopa Ljubljanski Schellenburg.
 
@@ -48,14 +48,15 @@ Pri `nepremicnine.net` ni podane enote za ceno, ampak večina jih navaja ceno za
 
 Nadaljevali smo s histogramom leta gradnje. Pri tem smo ugotovili, da je izmed vseh oglasov okoli 22% novogradenj, nepremičnine, zgrajene pred letom 2023 pa so približno enakomerno porazdeljene.
 
-![alt text](slike/histogram_starosti.png)
+<img src="slike/histogram_starosti.png" width=600/>
 
 ### Risanje ponudnikov
 
 Pogledali smo, kolikšen delež nepremičninskega trga zaseda posamezna agencija in katera ima najboljše ponudbe v povprečju.
 
-![alt text](slike/agencije_delezi.png)
-![alt text](slike/prodajalci_cene.png)
+<img src="slike/agencije_delezi.png" width=700/>
+
+<img src="slike/prodajalci_cene.png" width=1000/>
 
 Vidimo, da največji delež zaseda CENTURY 21 agencija, ogromno pa je majhnih agencij, ki spadajo pod "ostalo". Povprečna cena je največja pri agenciji Ljubljana nepremičnine, najcenejša pa pri RENES d.o.o., ki se ukvarja večino s prodajo zanemarjenih hiš.
 
@@ -63,13 +64,13 @@ Vidimo, da največji delež zaseda CENTURY 21 agencija, ogromno pa je majhnih ag
 
 Da smo preverili, ali starost gradnje vpliva na ceno, smo narisali scatter plot in preverili Pearsonov koeficient.
 
-<img src="slike/cena_leto.png" width="500" />
+<img src="slike/cena_leto.png" width="700" />
 
 Vidimo, da starost gradnje ne korelira s ceno. To nam pove tudi nizek Pearsonov koeficient ($0,04$). Stare hiše so namreč pogosto adaptirane, zaradi česar jim vrednost ne pada.
 
 Zanimivo je videti, da so novogradnje običajno bolj energetsko učinkovite, ampak kljub temu njihova povprečna cena ni bistveno večja od povprečne cene ostalih nepremičnin. Iz tega sledi tudi to, da energetska učinkovitost in cena nimata velike povezave.
 
-<img src="slike/energija_leto.png" />
+<img src="slike/energija_leto.png" width="700" />
 
 
 ### Zemljevid novogradenj
@@ -90,7 +91,7 @@ Na prvem stolpičnem diagramu lahko vidimo, da največje razmerje med povprečno
 
 Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v regijah, kjer je več ločitev. Novo ločeni ljudje namreč običajno rabijo tudi novo nepremičnino.
 
-<img src="slike/locitve_ratio.png" width=900/>
+<img src="slike/locitve_ratio.png" width=600/>
 
 V Obalno-kraški ločitve najverjetneje nimajo vpliva na število nepremičnin, ker je regija bolj turistično nagnjena. Lahko bi sklepali, da pa v regijah na koncu grafa, torej Zasavska, Koroška, Posavska in Savinjska, verjetno vidita dodatno nepremičnino za vsako ločitev.
 
