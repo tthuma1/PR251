@@ -18,7 +18,7 @@ Podatke smo zbrali v `csv` datotekah.
 
 Za branj podatkov v Pythonu smo uporabili `pandas` knjižnico, grafe pa smo risali z `matplotlib` in `seaborn`. Za risanje podatkov na zemljevidu smo uporabili `cartopy` knjižnico.
 
-### Risanje cen
+### Splošni pogled na cene
 
 Za začetek smo pogledali kako se cene odražajo na zemljevidu.
 
@@ -44,13 +44,13 @@ B_fit = [beta.pdf(x, *pars_b) for x in xb]
 
 Pri `nepremicnine.net` ni podane enote za ceno, ampak večina jih navaja ceno za celo nepremičnino. Da ignoriramo vrednosti, ki očitno niso pravilne, smo se omejili med 50.000 in 100.000.000 EUR.
 
-### Risanje starosti
+### Starost nepremičnin
 
 Nadaljevali smo s histogramom leta gradnje. Pri tem smo ugotovili, da je izmed vseh oglasov okoli 22% novogradenj, nepremičnine, zgrajene pred letom 2023 pa so približno enakomerno porazdeljene.
 
 <img src="slike/histogram_starosti.png" width=600/>
 
-### Risanje ponudnikov
+### Nepremičninske agencije
 
 Pogledali smo, kolikšen delež nepremičninskega trga zaseda posamezna agencija in katera ima najboljše ponudbe v povprečju.
 
@@ -60,7 +60,7 @@ Pogledali smo, kolikšen delež nepremičninskega trga zaseda posamezna agencija
 
 Vidimo, da največji delež zaseda CENTURY 21 agencija, ogromno pa je majhnih agencij, ki spadajo pod "ostalo". Povprečna cena je največja pri agenciji Ljubljana nepremičnine, najcenejša pa pri RENES d.o.o., ki se ukvarja večino s prodajo zanemarjenih hiš.
 
-### Povezava med starostjo in ceno
+### Povezava starosti z izbranimi atributi
 
 Da smo preverili, ali starost gradnje vpliva na ceno, smo narisali scatter plot in preverili Pearsonov koeficient.
 
@@ -97,12 +97,12 @@ V Obalno-kraški ločitve najverjetneje nimajo vpliva na število nepremičnin, 
 
 ### Čas za adaptacijo nepremičnin
 
-<img src="slike/prenovitve.png" width=900/>
+<img src="slike/prenovitve.png" width=600/>
 
 Vidimo, da je večina nepremičnin bila obnovljena v ~100 do 200 letih izgradnje, vendar se pa število zmanjša pri okoli ~500 letih. To so večinoma "rustične nepremičnine" v naravi, gradovi ...
 
 ### Vikendi
 
-<img src="slike/vikendi.png" width=800/>
+<img src="slike/vikendi.png" width=400/>
 
 Italija je za vikende najdražja, ima pa le okoli 40 nepremičnin naprodaj. Hrvaška jih ima več, okoli 400. Avstrija je najcenejša, ampak je podatek iz le ene nepremičnine. Ostale države po Evropi večinoma nimajo nič naprodaj, ali pa so v isti situaciji kot Avstrija.
