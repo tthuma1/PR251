@@ -63,9 +63,14 @@ Vidimo, da največji delež zaseda CENTURY 21 agencija, ogromno pa je majhnih ag
 
 Da smo preverili, ali starost gradnje vpliva na ceno, smo narisali scatter plot in preverili Pearsonov koeficient.
 
-<img src="slike/cena_leta.png" width="500" />
+<img src="slike/cena_leto.png" width="500" />
 
 Vidimo, da starost gradnje ne korelira s ceno. To nam pove tudi nizek Pearsonov koeficient ($0,04$). Stare hiše so namreč pogosto adaptirane, zaradi česar jim vrednost ne pada.
+
+Zanimivo je videti, da so novogradnje običajno bolj energetsko učinkovite, ampak kljub temu njihova povprečna cena ni bistveno večja od povprečne cene ostalih nepremičnin. Iz tega sledi tudi to, da energetska učinkovitost in cena nimata velike povezave.
+
+<img src="slike/energija_leto.png" />
+
 
 ### Zemljevid novogradenj
 
