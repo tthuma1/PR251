@@ -85,15 +85,15 @@ Vidimo, da je ta mapa zelo podobna mapi dragih nepremičnin. Večina novogradenj
 
 Pogledali smo, kako se cena na kvadratni meter spreminja z regijo in njenimi podatki o prebivalstvu.
 
-<img src="slike/cena_na_prebivalca.png" width=700 />
+<img src="slike/cena_na_prebivalca.png" width=600 />
 
-<img src="slike/regije_cene_placa.png" width=700 />
+<img src="slike/regije_cene_placa.png" width=600 />
 
 Na prvem zemljevidu lahko vidimo, da največje razmerje med povprečno ceno stanovanja in številom prebivalcev pripada Obalno-kraški regiji. To je predvidoma res, zaradi velikega števila počitniških hiš, katerih prebivalci nimajo stalnega naslova v tej regiji. Prav tako pa je presenetljivo, da je regija, ki vsebuje Ljubljano - osrednjeslovenska regija - zelo nizko uvrščena. Do tega pride zaradi velikega števila prebivalcev. Nekakšen popravek tega lahko vidimo na naslednjem zemljevidu, ki prikazuje razmerje med povprečno ceno stanovanja in povprečno neto plačo prebivalcev te regije. Na nek način prikaže, koliko mesecev bi prebivalec neke regije moral delati, da bi si lahko privoščil povprečno stanovanje/hišo, brez da upoštevamo druge mesečne stroške. Na tem zemljevidu je osrednjeslovenska regija druga po vrsti, kar ni presenetljivo.
 
 Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v regijah, kjer je več ločitev. Novo ločeni ljudje namreč običajno rabijo tudi novo nepremičnino.
 
-<img src="slike/locitve_ratio.png" width=600/>
+<img src="slike/locitve_ratio_map.png" width=600/>
 
 V Obalno-kraški ločitve najverjetneje nimajo vpliva na število nepremičnin, ker je regija bolj turistično nagnjena. Lahko bi sklepali, da pa v regijah na koncu grafa, torej Zasavska, Koroška, Posavska in Savinjska, verjetno vidita dodatno nepremičnino za vsako ločitev.
 
