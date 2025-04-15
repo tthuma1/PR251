@@ -86,6 +86,7 @@ Vidimo, da je ta mapa zelo podobna mapi dragih nepremičnin. Večina novogradenj
 Pogledali smo, kako se cena na kvadratni meter spreminja z regijo in njenimi podatki o prebivalstvu.
 
 <img src="slike/regije_cene.png" />
+<img src="slike/regije_cene_placa.png" width=700 />
 
 Na prvem stolpičnem diagramu lahko vidimo, da največje razmerje med povprečno ceno stanovanja in številom prebivalcev pripada Obalno-kraški regiji. To je predvidoma res, zaradi velikega števila počitniških hiš, katerih prebivalci nimajo stalnega naslova v tej regiji. Prav tako pa je presenetljivo, da je regija, ki vsebuje Ljubljano - osrednjeslovenska regija - zelo nizko uvrščena. Do tega pride zaradi velikega števila prebivalcev. Nekakšen popravek tega lahko vidimo na naslednjem diagramu, ki prikazuje razmerje med povprečno ceno stanovanja in povprečno neto plačo prebivalcev te regije. Na nek način prikaže, koliko mesecev bi prebivalec neke regije moral delati, da bi si lahko privoščil povprečno stanovanje/hišo, brez da upoštevamo druge mesečne stroške. Na tem diagramu je osrednjeslovenska regija druga po vrsti, kar ni presenetljivo.
 
