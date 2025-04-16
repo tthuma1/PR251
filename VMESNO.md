@@ -38,7 +38,7 @@ Da smo preverili, ali starost gradnje vpliva na ceno, smo narisali razsevni diag
 
 <img src="slike/cena_leto.png" width="700" />
 
-Vidimo, da ima starost gradnje nizko stopnjo korelacije s ceno. To nam pove tudi nizek Pearsonov koeficient (0,17). Stare nepremičnine so namreč pogosto adaptirane, zaradi česar jim vrednost ne pada. V povprečju je namreč nepremičnina adaptirana po 75 letih. Je pa povprečna cena na kvadratni meter nepremičnin zgrajenih po letu 2020 kar za 23% višja od povprečne cene ostalih nepremičnin.
+Vidimo, da ima starost gradnje nizko stopnjo korelacije s ceno. To nam pove tudi nizek Pearsonov koeficient (0,17). Stare nepremičnine so namreč pogosto adaptirane, zaradi česar jim vrednost ne pada. V povprečju je namreč nepremičnina adaptirana po 75 letih. Res pa je, da je povprečna cena na kvadratni meter nepremičnin zgrajenih po letu 2020 kar za 26% višja od povprečne cene ostalih nepremičnin (2970 proti 3740 EUR/m2).
 
 Kot pričakovano, so novogradnje poleg višje cene tudi bolj energetsko učinkovite. Iz tega sledi, da je tudi med ceno in energetsko učinkovitostjo korelacija, čeprav dokaj nizke stopnje.
 
@@ -78,6 +78,6 @@ Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v r
 
 <img src="slike/locitve_ratio_map.png" width=600/>
 
-V Obalno-kraški ločitve najverjetneje nimajo vpliva na število nepremičnin, ker je regija bolj turistično nagnjena. Lahko bi sklepali, da pa v regijah na koncu grafa, torej Zasavska, Koroška, Posavska in Savinjska, verjetno vidita dodatno nepremičnino za vsako ločitev.
+V Obalno-kraški ločitve najverjetneje nimajo vpliva na število nepremičnin, ker je regija bolj turistično nagnjena. Graf se bistveno ne spreminja od razmerja med številom oglasov in številom prebivalcev, torej iz njega lahko potegnemo enake ugotovitve.
 
 Iz zgornjih grafov sklepamo, da je po večini prodaja nepremičnin v skladu s povpraševanjem. Kot regijo s preveč prodaje smo označili Obalno-kraško. V Osrednjeslovnski in Gorenjski regiji vidimo, da je oglasov sicer dovolj, ampak so cenovno nedostopni. Prostor za razširitev prodaje smo zaznali v Zasavki in Primorsko-notranjski regiji, čeprav se je tu treba spomniti, da te dve regiji ne vključujeta večjih gospodarskih središč, kar lahko odvrne kupce.
