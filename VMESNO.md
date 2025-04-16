@@ -68,7 +68,7 @@ Da smo preverili, ali starost gradnje vpliva na ceno, smo narisali scatter plot 
 
 Vidimo, da ima starost gradnje nizko stopnjo korelacije s ceno. To nam pove tudi nizek Pearsonov koeficient (0,17). Stare hiše so namreč pogosto adaptirane, zaradi česar jim vrednost ne pada. Je pa povprečna cena na kvadratni meter nepremičnin zgrajenih po letu 2020 kar za 23% višja od povprečne cene ostalih nepremičnin.
 
-Zanimivo je videti, da so novogradnje običajno bolj energetsko učinkovite, ampak kljub temu njihova povprečna cena ni bistveno večja od povprečne cene ostalih nepremičnin. Iz tega sledi tudi to, da energetska učinkovitost in cena nimata velike povezave.
+Kot pričakovano, so novogradnje poleg višje cene tudi bolj energetsko učinkovite. Iz tega sledi, da je tudi med ceno in energetsko učinkovitostjo korelacija, čeprav dokaj nizke stopnje.
 
 <img src="slike/energija_leto.png" width="700" />
 
