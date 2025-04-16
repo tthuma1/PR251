@@ -1,85 +1,87 @@
 # Ko kvadratni metri spregovorijo – ali so slovenske nepremičnine "kuhane"?​
 
-## Uvod
+## Opis problema
 
-Do vmesnega poročila smo zbrali vse ustrezne podatke in jih predstavili z raznimi vizualizacijami statistik. Z vizualizacijami smo tudi pogledali kako različni atributi vplivajo na ceno nepremičnin.
+V seminarski nalogi se osredetočamo na pridobivanje znanj z analizo nepremičninskih oglasov, ki so objavljeni v aprilu 2025. Naša glavna vprašanja oz. cilji so:
+- Napovedovanje cene v odvisnosti od podanih atributov.
+- Ali se nakup novogradenj bolj splača od nakupa starejših nepremičnin?​
+- Katere nepremičninske agencije ponujajo najboljše ponudbe?​
+- Kako se nepremičninski trg sklada s prebivalstvom posamezne regije?
+
+Do vmesnega poročila smo zbrali vse ustrezne podatke in jih predstavili z raznimi vizualizacijami. V glavnem smo se osredotočili na oglase za prodajo hiš in stanovanj.
 
 ## Zajemanje podatkov
 
-Podatke smo zajemali iz spletnih strani `nepremicnine.net`, `mojikvadrati.com` in `bolha.com`.
+Podatke smo zajemali iz spletnih strani [nepremicnine.net](), [mojikvadrati.com]() in [bolha.com]().
 
-Za obhod raznih zaščit strani pred roboti smo uporabili knjižnico `hrequests`. Podatke smo dobili iz HTML-ja strani, saj nima ustreznega odprtega API-ja. Veliko pomembnih informacij je tukaj navedenih v opisu, zaradi česar jih je težko izluščiti. Za branje podatkov iz HTML strukture smo uporabili knjižnico `BeautifulSoup`. Vnosovov na `nepremicnine.net` je ogromno (nad 60000). Da smo vse podatke izluščili v dovolj kratkem času, smo prošnje paralelizirali.
+Za obhod raznih zaščit strani pred roboti smo uporabili knjižnico `hrequests`. Podatke smo dobili iz HTML-ja strani, saj nobena stran nima ustreznega odprtega vmesnika. Za branje podatkov iz HTML strukture smo uporabili knjižnico `BeautifulSoup`. Na strani `nepremicnine.net` je veliko pomembnih informacij navedenih v nestrukturiranih opisih, zaradi česar jih je težko izluščiti.
 
-Za `mojikvadrati.com` smo prav tako podatke dobili iz HTML, ampak tu so veliko bolje strukturirani. Na tej podatkovni zbirki smo vnosom dodali še podatke o koordinatah. Za to smo uporabili knjižnico `geopy`. Koordinate smo dobili iz naslovov oglasov, vendar zaradi narave podatkov včasih koordinate niso točne.
+Vnosom iz zbirke strani `mojikvadrati.com` smo dodali še podatke o koordinatah. Za to smo uporabili knjižnico `geopy`. Koordinate smo dobili iz naslovov oglasov, vendar zaradi narave podatkov včasih koordinate niso točne.
 
-Podatke smo zbrali v `csv` datotekah.
+Skupaj smo zbrali nad 70.000 oglasov, ki smo jih zapisali v `csv` datoteke.
 
 ## Vizualizacije
 
-Za branj podatkov v Pythonu smo uporabili `pandas` knjižnico, grafe pa smo risali z `matplotlib` in `seaborn`. Za risanje podatkov na zemljevidu smo uporabili `cartopy` knjižnico.
+Za branje podatkov v Pythonu smo uporabili `pandas` knjižnico, grafe pa smo risali z `matplotlib` in `seaborn`. Za risanje podatkov na zemljevidu smo uporabili `cartopy` in `geopandas` knjižnici.
 
 ### Splošni pogled na cene
 
-Za začetek smo pogledali kako se cene odražajo na zemljevidu.
-
-Poglejmo si najprej zemljevid, kjer so prikazane vse cene hiš in stanovanj skupaj s ceno.
+Za začetek smo pogledali, kako se cene odražajo na zemljevidu. Spodaj je prikazan zemljevid, kjer so narisane vse cene hiš in stanovanj.
 
 <img src="slike/mapa_cene.png" width=1000/>
 
-Vidimo, da se pojavijo območja, kjer je veliko dragih nepremičnin, kot sta Ljubljana in obala. Nekaj dragih nepremičnin se pojavi še v krajih, od koder se ljudje pogosto vozijo v Ljubljano, kot so Kranj, Domžale in Grosuplje. Drage nepremičnine se pojavijo še v Jesenicah, Kranjski gori in Gorici. Zanimivo je, da je v okolici Maribora in v Savinjski regiji na voljo veliko nepremičnin, ki pa so relativno poceni.
+Vidimo, da se pojavijo območja, kjer je veliko dragih nepremičnin, kot sta Ljubljana in Obala. Nekaj dragih nepremičnin se pojavi še v krajih, od koder se ljudje pogosto vozijo v Ljubljano, kot so Kranj, Domžale in Grosuplje. Drage nepremičnine se pojavijo še v Jesenicah, Kranjski gori in Novi Gorici. Zanimivo je, da je v okolici Maribora in v Savinjski regiji na voljo veliko nepremičnin, ki pa so relativno poceni.
 
-Nato smo cene za stanovanja in hiše narisali na histogramu, da smo dobili porazdelitev in iz tega določili mejo za osamelce.
-
-Cena sledi približno Beta porazdelitvi.
-
-```Python
-pars_b = beta.fit(cena_na_m2)
-xb = np.linspace(cena_na_m2.min(), cena_na_m2.max(), 1000)
-B_fit = [beta.pdf(x, *pars_b) for x in xb]
-```
+Nato smo cene za stanovanja in hiše narisali na histogramu. Cena prbližno sledi Beta porazdelitvi.
 
 <img src="slike/histogram_beta.png" width=600/>
 
-Če vzamemo stopnjo značilnosti za osamelce $\alpha = 0,05$, dobimo, da so nenavadno poceni nepremičnine pod 540 EUR/m2, nenavadno drage pa nad 7780 EUR/m2. Pod osamelce na spodnji strani spadajo razne napol podrte in zapuščene hiše, na zgornji pa luksuzni penthousi v Ljubljani, obali in tujini. Posebej izstopa Ljubljanski Schellenburg.
+Če vzamemo stopnjo značilnosti za osamelce $\alpha = 0,05$, dobimo, da so nenavadno poceni nepremičnine pod 540 EUR/m2, nenavadno drage pa nad 7780 EUR/m2. Pod osamelce na spodnji strani spadajo razne napol podrte in zapuščene hiše, na zgornji pa luksuzni penthousi v Ljubljani, obali in tujini.
 
-Pri `nepremicnine.net` ni podane enote za ceno, ampak večina jih navaja ceno za celo nepremičnino. Da ignoriramo vrednosti, ki očitno niso pravilne, smo se omejili med 50.000 in 100.000.000 EUR.
+### Primerjava starogradenj in novogradenj
 
-### Starost nepremičnin
-
-Nadaljevali smo s histogramom leta gradnje. Pri tem smo ugotovili, da je izmed vseh oglasov okoli 22% novogradenj, nepremičnine, zgrajene pred letom 2023 pa so približno enakomerno porazdeljene.
+Pred primerjavo nepremičnin različnih starosti smo ugotovili, da je izmed vseh oglasov okoli 22% novogradenj, nepremičnine, zgrajene pred letom 2023 pa so približno enakomerno porazdeljene.
 
 <img src="slike/histogram_starosti.png" width=600/>
 
-### Nepremičninske agencije
-
-Pogledali smo, kolikšen delež nepremičninskega trga zaseda posamezna agencija in katera ima najboljše ponudbe v povprečju.
-
-<img src="slike/agencije_delezi.png" width=700/>
-
-<img src="slike/prodajalci_cene.png" width=1000/>
-
-Vidimo, da največji delež zaseda CENTURY 21 agencija, ogromno pa je majhnih agencij, ki spadajo pod "ostalo". Povprečna cena je največja pri agenciji Ljubljana nepremičnine, najcenejša pa pri RENES d.o.o., ki se ukvarja večino s prodajo zanemarjenih hiš.
 
 ### Povezava starosti z izbranimi atributi
 
-Da smo preverili, ali starost gradnje vpliva na ceno, smo narisali scatter plot in preverili Pearsonov koeficient.
+Da smo preverili, ali starost gradnje vpliva na ceno, smo narisali razsevni diagram in preverili Pearsonov koeficient.
 
 <img src="slike/cena_leto.png" width="700" />
 
-Vidimo, da ima starost gradnje nizko stopnjo korelacije s ceno. To nam pove tudi nizek Pearsonov koeficient (0,17). Stare hiše so namreč pogosto adaptirane, zaradi česar jim vrednost ne pada. Je pa povprečna cena na kvadratni meter nepremičnin zgrajenih po letu 2020 kar za 23% višja od povprečne cene ostalih nepremičnin.
+Vidimo, da ima starost gradnje nizko stopnjo korelacije s ceno. To nam pove tudi nizek Pearsonov koeficient (0,17). Stare nepremičnine so namreč pogosto adaptirane, zaradi česar jim vrednost ne pada. Je pa povprečna cena na kvadratni meter nepremičnin zgrajenih po letu 2020 kar za 23% višja od povprečne cene ostalih nepremičnin.
 
 Kot pričakovano, so novogradnje poleg višje cene tudi bolj energetsko učinkovite. Iz tega sledi, da je tudi med ceno in energetsko učinkovitostjo korelacija, čeprav dokaj nizke stopnje.
 
 <img src="slike/energija_leto.png" width="700" />
 
+Za novogradnje bomo torej odšteli več denarja, ampak običajno dobimo bistveno boljši produkt.
 
-### Zemljevid novogradenj
+Poglejmo si še, kje se nahaja največ novogradenj:
 
-Odgovor na vprašanje kje je največ novogradenj smo spet dobili na zemljevidu.
-
-<img src="slike/novogradnje_map.png" width="600" />
+<img src="slike/novogradnje_map.png" width="700" />
 
 Vidimo, da je ta mapa zelo podobna mapi dragih nepremičnin. Večina novogradenj je v večjih slovenskih mestih, prav tako pa jih je kar nekaj blizu meje na hrvaški obali.
+
+### Čas za adaptacijo nepremičnin
+
+<img src="slike/prenovitve.png" width=600/>
+
+Vidimo, da je večina nepremičnin bila obnovljena v ~100 do 200 letih izgradnje, vendar pa se število zmanjša pri okoli 500 letih. To so večinoma "rustične nepremičnine" v naravi, gradovi ...
+
+### Nepremičninske agencije
+
+Pogledali smo, kolikšen delež nepremičninskega trga zaseda posamezna agencija in katera ima v povprečju najboljše ponudbe.
+
+<img src="slike/agencije_delezi.png" width=700/>
+
+<img src="slike/prodajalci_cene.png" width=1000/>
+
+Vidimo, da velike franšize, kot so CENTURY 21, RE/MAX in KW nimajo ogromnega tržnega deleža. Ta je namreč dokaj enakomerno razporejen med stotine manjših agencij.
+
+Samo s pogledom na cene je težko določiti, katera agencija ima najboljše ponudbe, saj vsaka agencija prodaja velik spekter vrst nepremičnin. Njena povprečna cena se tako prilagodi vrsti nepremičnine, ki je prodajajo največ (luksuzne vile ali zanemarjene hiše).
 
 ### Cena v odvnisnosti od demografskih atributov
 
@@ -89,7 +91,9 @@ Pogledali smo, kako se cena na kvadratni meter spreminja z regijo in njenimi pod
 
 <img src="slike/regije_cene_placa.png" width=600 />
 
-Na prvem zemljevidu lahko vidimo, da največje razmerje med povprečno ceno stanovanja in številom prebivalcev pripada Obalno-kraški regiji. To je predvidoma res, zaradi velikega števila počitniških hiš, katerih prebivalci nimajo stalnega naslova v tej regiji. Prav tako pa je presenetljivo, da je regija, ki vsebuje Ljubljano - osrednjeslovenska regija - zelo nizko uvrščena. Do tega pride zaradi velikega števila prebivalcev. Nekakšen popravek tega lahko vidimo na naslednjem zemljevidu, ki prikazuje razmerje med povprečno ceno stanovanja in povprečno neto plačo prebivalcev te regije. Na nek način prikaže, koliko mesecev bi prebivalec neke regije moral delati, da bi si lahko privoščil povprečno stanovanje/hišo, brez da upoštevamo druge mesečne stroške. Na tem zemljevidu je osrednjeslovenska regija druga po vrsti, kar ni presenetljivo.
+Na prvem zemljevidu lahko opazujemo regije, ki imajo veliko ponudbo nepremičnin na prebivalca. To lahko namiguje k temu, da ima tam manj ljudi stalne naslove, torej gre večinoma za vikende. Tu izstopa Obala, kar ni presenetljivo, zanimivo pa je, da je razmerje zelo visoko v Zasavju.
+
+Na naslednjem zemljevidu pa vidimo razmerje med povprečno ceno nepremičnin in povprečno neto plačo prebivalcev te regije. To nam pove, koliko mesecev bi prebivalec neke regije moral delati, da bi si lahko privoščil povprečno stanovanje/hišo, brez da upoštevamo druge mesečne stroške. Na tem zemljevidu prevladujeta Osrednjeslovenska in Obalno-kraška regija.
 
 Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v regijah, kjer je več ločitev. Novo ločeni ljudje namreč običajno rabijo tudi novo nepremičnino.
 
@@ -97,14 +101,8 @@ Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v r
 
 V Obalno-kraški ločitve najverjetneje nimajo vpliva na število nepremičnin, ker je regija bolj turistično nagnjena. Lahko bi sklepali, da pa v regijah na koncu grafa, torej Zasavska, Koroška, Posavska in Savinjska, verjetno vidita dodatno nepremičnino za vsako ločitev.
 
-### Čas za adaptacijo nepremičnin
-
-<img src="slike/prenovitve.png" width=600/>
-
-Vidimo, da je večina nepremičnin bila obnovljena v ~100 do 200 letih izgradnje, vendar se pa število zmanjša pri okoli ~500 letih. To so večinoma "rustične nepremičnine" v naravi, gradovi ...
-
 ### Vikendi
 
 <img src="slike/vikendi.png" width=400/>
 
-Italija je za vikende najdražja, ima pa le okoli 40 nepremičnin naprodaj. Hrvaška jih ima več, okoli 400. Avstrija je najcenejša, ampak je podatek iz le ene nepremičnine. Ostale države po Evropi večinoma nimajo nič naprodaj, ali pa so v isti situaciji kot Avstrija.
+Od sosednjih držav ima Italija na voljo najdražje vikende. Tu moramo upoštevati še to, da je oglasov za tujino bistveno manj kot za Sloveniji.
