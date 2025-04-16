@@ -56,7 +56,7 @@ Vidimo, da je ta mapa zelo podobna mapi dragih nepremičnin. Večina novogradenj
 
 Pogledali smo, kolikšen delež nepremičninskega trga zaseda posamezna agencija in katera ima v povprečju najboljše ponudbe.
 
-<img src="slike/agencije_delezi.png" width=700/>
+<img src="slike/agencije_delezi.png" width=800/>
 
 <img src="slike/prodajalci_cene.png" width=1000/>
 
@@ -66,15 +66,13 @@ Samo s pogledom na cene je težko določiti, katera agencija ima najboljše ponu
 
 ### Cena v odvnisnosti od demografskih atributov
 
-Pogledali smo, kako se cena na kvadratni meter spreminja z regijo in njenimi podatki o prebivalstvu.
-
-<img src="slike/cena_na_prebivalca.png" width=600 />
+<img src="slike/stoglasov_na_prebivalca.png" width=600 />
 
 <img src="slike/regije_cene_placa.png" width=600 />
 
-Na prvem zemljevidu lahko opazujemo regije, ki imajo veliko ponudbo nepremičnin na prebivalca. To lahko namiguje k temu, da ima tam manj ljudi stalne naslove, torej gre večinoma za vikende. Tu izstopa Obala, kar ni presenetljivo, zanimivo pa je, da je razmerje zelo visoko v Zasavju.
+Na prvem zemljevidu lahko opazujemo regije, ki imajo veliko ponudbo nepremičnin na prebivalca. To lahko namiguje k temu, da ima tam manj ljudi stalne naslove, torej gre večinoma za vikende. Tu izstopa Obala, kar ni presenetljivo. Vidimo tudi, da je v Zasavski regiji bistveno premalo ponudbe glede na število prebivalcev.
 
-Na naslednjem zemljevidu pa vidimo razmerje med povprečno ceno nepremičnin in povprečno neto plačo prebivalcev te regije. To nam pove, koliko mesecev bi prebivalec neke regije moral delati, da bi si lahko privoščil povprečno stanovanje/hišo, brez da upoštevamo druge mesečne stroške. Na tem zemljevidu prevladujeta Osrednjeslovenska in Obalno-kraška regija.
+Na naslednjem zemljevidu pa vidimo razmerje med povprečno ceno nepremičnin in povprečno neto plačo prebivalcev te regije. To nam pove, koliko mesecev bi prebivalec neke regije moral delati, da bi si lahko privoščil povprečno stanovanje/hišo, brez da upoštevamo druge mesečne stroške. Na tem zemljevidu prevladujeta Osrednjeslovenska in Obalno-kraška regija. Najbolj ugodne regije pa so Zasavksa, Primorsko-notranjska in Pomurska regija.
 
 Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v regijah, kjer je več ločitev. Novo ločeni ljudje namreč običajno rabijo tudi novo nepremičnino.
 
@@ -82,8 +80,4 @@ Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v r
 
 V Obalno-kraški ločitve najverjetneje nimajo vpliva na število nepremičnin, ker je regija bolj turistično nagnjena. Lahko bi sklepali, da pa v regijah na koncu grafa, torej Zasavska, Koroška, Posavska in Savinjska, verjetno vidita dodatno nepremičnino za vsako ločitev.
 
-### Vikendi
-
-<img src="slike/vikendi.png" width=400/>
-
-Od sosednjih držav ima Italija na voljo najdražje vikende. Tu moramo upoštevati še to, da je oglasov za tujino bistveno manj kot za Sloveniji.
+Iz zgornjih grafov sklepamo, da je po večini prodaja nepremičnin v skladu s povpraševanjem. Kot regijo s preveč prodaje smo označili Obalno-kraško. V Osrednjeslovnski in Gorenjski regiji vidimo, da je oglasov sicer dovolj, ampak so cenovno nedostopni. Prostor za razširitev prodaje smo zaznali v Zasavki in Primorsko-notranjski regiji, čeprav se je tu treba spomniti, da te dve regiji ne vključujeta večjih gospodarskih središč, kar lahko odvrne kupce.
