@@ -14,7 +14,7 @@ Do vmesnega poročila smo zbrali vse ustrezne podatke in jih predstavili z razni
 
 Podatke smo zajemali iz spletnih strani [nepremicnine.net](), [mojikvadrati.com]() in [bolha.com]().
 
-Za obhod raznih zaščit strani pred roboti smo uporabili knjižnico `hrequests`. Podatke smo dobili iz HTML-ja strani, saj nobena stran nima ustreznega odprtega vmesnika. Za branje podatkov iz HTML strukture smo uporabili knjižnico `BeautifulSoup`. Na strani `nepremicnine.net` je veliko pomembnih informacij navedenih v nestrukturiranih opisih, zaradi česar jih je težko izluščiti.
+Za obhod raznih zaščit strani pred roboti smo uporabili knjižnico `hrequests`. Podatke smo dobili iz HTML-ja strani, saj nobena stran nima ustreznega odprtega vmesnika. Za branje podatkov iz HTML strukture smo uporabili knjižnico `BeautifulSoup`.
 
 Vnosom iz zbirke strani `mojikvadrati.com` smo dodali še podatke o koordinatah. Za to smo uporabili knjižnico `geopy`. Koordinate smo dobili iz naslovov oglasov, vendar zaradi narave podatkov včasih koordinate niso točne.
 
@@ -32,26 +32,13 @@ Za začetek smo pogledali, kako se cene odražajo na zemljevidu. Spodaj je prika
 
 Vidimo, da se pojavijo območja, kjer je veliko dragih nepremičnin, kot sta Ljubljana in Obala. Nekaj dragih nepremičnin se pojavi še v krajih, od koder se ljudje pogosto vozijo v Ljubljano, kot so Kranj, Domžale in Grosuplje. Drage nepremičnine se pojavijo še v Jesenicah, Kranjski gori in Novi Gorici. Zanimivo je, da je v okolici Maribora in v Savinjski regiji na voljo veliko nepremičnin, ki pa so relativno poceni.
 
-Nato smo cene za stanovanja in hiše narisali na histogramu. Cena prbližno sledi Beta porazdelitvi.
-
-<img src="slike/histogram_beta.png" width=600/>
-
-Če vzamemo stopnjo značilnosti za osamelce $\alpha = 0,05$, dobimo, da so nenavadno poceni nepremičnine pod 540 EUR/m2, nenavadno drage pa nad 7780 EUR/m2. Pod osamelce na spodnji strani spadajo razne napol podrte in zapuščene hiše, na zgornji pa luksuzni penthousi v Ljubljani, obali in tujini.
-
-### Primerjava starogradenj in novogradenj
-
-Pred primerjavo nepremičnin različnih starosti smo ugotovili, da je izmed vseh oglasov okoli 22% novogradenj, nepremičnine, zgrajene pred letom 2023 pa so približno enakomerno porazdeljene.
-
-<img src="slike/histogram_starosti.png" width=600/>
-
-
 ### Povezava starosti z izbranimi atributi
 
 Da smo preverili, ali starost gradnje vpliva na ceno, smo narisali razsevni diagram in preverili Pearsonov koeficient.
 
 <img src="slike/cena_leto.png" width="700" />
 
-Vidimo, da ima starost gradnje nizko stopnjo korelacije s ceno. To nam pove tudi nizek Pearsonov koeficient (0,17). Stare nepremičnine so namreč pogosto adaptirane, zaradi česar jim vrednost ne pada. Je pa povprečna cena na kvadratni meter nepremičnin zgrajenih po letu 2020 kar za 23% višja od povprečne cene ostalih nepremičnin.
+Vidimo, da ima starost gradnje nizko stopnjo korelacije s ceno. To nam pove tudi nizek Pearsonov koeficient (0,17). Stare nepremičnine so namreč pogosto adaptirane, zaradi česar jim vrednost ne pada. V povprečju je namreč nepremičnina adaptirana po 75 letih. Je pa povprečna cena na kvadratni meter nepremičnin zgrajenih po letu 2020 kar za 23% višja od povprečne cene ostalih nepremičnin.
 
 Kot pričakovano, so novogradnje poleg višje cene tudi bolj energetsko učinkovite. Iz tega sledi, da je tudi med ceno in energetsko učinkovitostjo korelacija, čeprav dokaj nizke stopnje.
 
@@ -64,12 +51,6 @@ Poglejmo si še, kje se nahaja največ novogradenj:
 <img src="slike/novogradnje_map.png" width="700" />
 
 Vidimo, da je ta mapa zelo podobna mapi dragih nepremičnin. Večina novogradenj je v večjih slovenskih mestih, prav tako pa jih je kar nekaj blizu meje na hrvaški obali.
-
-### Čas za adaptacijo nepremičnin
-
-<img src="slike/prenovitve.png" width=600/>
-
-Vidimo, da je večina nepremičnin bila obnovljena v ~100 do 200 letih izgradnje, vendar pa se število zmanjša pri okoli 500 letih. To so večinoma "rustične nepremičnine" v naravi, gradovi ...
 
 ### Nepremičninske agencije
 
