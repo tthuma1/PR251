@@ -17,6 +17,7 @@ with open(input_file, "r", encoding="utf-8") as f:
         for pair in row["splosno"].split("|"):
             if "=" in pair:
                 key, val = pair.split("=", 1)
+                key = key.replace(":", "").strip()  # Remove colon and extra spaces
                 splosno_dict[key] = val
                 splosno_keys.add(key)
         row["parsed_splosno"] = splosno_dict
