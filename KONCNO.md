@@ -7,6 +7,7 @@ V seminarski nalogi se osredetočamo na pridobivanje znanj z analizo nepremični
 - Ali se nakup novogradenj bolj splača od nakupa starejših nepremičnin?​
 - Katere nepremičninske agencije ponujajo najboljše ponudbe?​
 - Kako se nepremičninski trg sklada s prebivalstvom posamezne regije?
+- Ustvarjanje napovednih modelov cene iz atributov, slik in opisov.
 
 Do vmesnega poročila smo zbrali vse ustrezne podatke in jih predstavili z raznimi vizualizacijami. V glavnem smo se osredotočili na oglase za prodajo hiš in stanovanj.
 
@@ -56,7 +57,6 @@ Vidimo, da je ta mapa zelo podobna mapi dragih nepremičnin. Večina novogradenj
 
 Pogledali smo, kolikšen delež nepremičninskega trga zaseda posamezna agencija in katera ima v povprečju najboljše ponudbe.
 
-<img src="slike/agencije_delezi.png" width=800/>
 
 <img src="slike/prodajalci_cene.png" width=1000/>
 
@@ -68,7 +68,6 @@ V prihodnosti bomo z napovednim modelom za cene lahko ocenili, kako poštene so 
 
 ### Cena v odvnisnosti od demografskih atributov
 
-<img src="slike/stoglasov_na_prebivalca.png" width=600 />
 
 <img src="slike/regije_cene_placa.png" width=600 />
 
@@ -78,11 +77,9 @@ Na naslednjem zemljevidu pa vidimo razmerje med povprečno ceno nepremičnin in 
 
 Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v regijah, kjer je več ločitev. Novo ločeni ljudje namreč običajno rabijo tudi novo nepremičnino.
 
-<img src="slike/locitve_ratio_map.png" width=600/>
-
-V Obalno-kraški ločitve najverjetneje nimajo vpliva na število nepremičnin, ker je regija bolj turistično nagnjena. Graf se bistveno ne razlikuje od razmerja med številom oglasov in številom prebivalcev, torej iz njega lahko potegnemo enake ugotovitve.
-
 Iz zgornjih grafov sklepamo, da je po večini prodaja nepremičnin v skladu s povpraševanjem. Kot regijo s preveč prodaje smo označili Obalno-kraško. V Osrednjeslovnski in Gorenjski regiji vidimo, da je oglasov sicer dovolj, ampak so cenovno nedostopni. Prostor za razširitev prodaje smo zaznali v Zasavki in Primorsko-notranjski regiji, kjer je zaenkrat relativno malo oglasov, ki so precej poceni. Tu pa se je treba spomniti, da ti dve regiji ne vključujeta večjih gospodarskih središč, kar lahko odvrne kupce.
+
+TODO
 
 ### Analiza iz besedila
 
