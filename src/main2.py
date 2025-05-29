@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 
 # Load the HTML from the saved file
-with open("mojikvadratilinks2.html", "r", encoding="utf-8") as file:
+with open("../data/kvadrati_new/mojikvadratilinks.html", "r", encoding="utf-8") as file:
     html_content = file.read()
 
 # Parse the HTML content
@@ -11,17 +11,19 @@ soup = BeautifulSoup(html_content, "html.parser")
 base_url = "https://mojikvadrati.com/nepremicnina"
 unique_links = [a['href'] for a in soup.find_all('a', href=True) if a['href'].startswith(base_url)]
 
-for link in unique_links:
-    if unique_links.count(link) > 2:
-        print(link)
-
-# # Print results
-# f = open("links2P.txt", "a")
+unique_links = set(unique_links)
 
 # for link in unique_links:
-#     f.write(link + '\n')
+#     if unique_links.count(link) > 2:
+#         print(link)
 
-# f.close()
+# # Print results
+f = open("links2P.txt", "a")
+
+for link in unique_links:
+    f.write(link + '\n')
+
+f.close()
 
 
 

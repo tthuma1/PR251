@@ -8,9 +8,8 @@ import time
 geolocator = Nominatim(user_agent="geo_lookup")
 
 links = []
-with open("mojikvadratilinks.txt", "r") as file:
+with open("../data/kvadrati_new/mojikvadratilinks.txt", "r") as file:
     links = list(map(lambda x: x.strip("\n"), file.readlines()))
-
 
 memorised_locations = dict()
 # print(links)
@@ -115,8 +114,8 @@ def extract_data_from_html(file_path, house_id):
     return data
 
 def main():
-    input_dir = "../data/kvadrati"
-    output_file = "kvadrati2.csv"
+    input_dir = "../data/kvadrati_new/pages"
+    output_file = "../data/kvadrati_new/kvadrati_new.csv"
     
     fieldnames = [
         "id", "naslov", "latitude", "longitude", "vrsta_prodaje", "vrsta", "tip", "velikost", "leto_gradnje", "cena",
@@ -127,7 +126,7 @@ def main():
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         
-        for i in range(568,571):
+        for i in range(len(links)):
             file_path = os.path.join(input_dir, f"html_vsebina_{i}.html")
             if os.path.exists(file_path):
                 data = extract_data_from_html(file_path, i)

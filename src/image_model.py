@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 # Paths
 IMAGE_DIR = "../data/resized_images/"
 CSV_PATH = "../data/kvadrati2/kvadrati_normalized.csv"
-IMAGE_SIZE = (224, 224)
+IMAGE_SIZE = (512, 512)
 
 # Load CSV
 df = pd.read_csv(CSV_PATH)
@@ -91,7 +91,7 @@ model.compile(optimizer='adam',
               loss=tf.keras.losses.MeanSquaredError(),
               metrics=[tf.keras.metrics.MeanAbsoluteError()])
 
-model.save("real_estate_model.keras", save_format="keras")
+model.save("../models/real_estate_model.keras", save_format="keras")
 
 # Train model
 history = model.fit(
@@ -102,8 +102,8 @@ history = model.fit(
 )
 
 # Plot training curves
-plt.plot(history.history['mae'], label='Train MAE')
-plt.plot(history.history['val_mae'], label='Val MAE')
+plt.plot(history.history['mean_absolute_error'], label='Train MAE')
+plt.plot(history.history['val_mean_absolute_error'], label='Val MAE')
 plt.xlabel('Epoch')
 plt.ylabel('MAE')
 plt.legend()
@@ -120,4 +120,4 @@ for i in range(5):
     print(f"Predicted: {pred_prices[i][0]:,.2f}, Actual: {true_prices[i][0]:,.2f}")
 
 import joblib
-joblib.dump(scaler, "price_scaler.pkl")
+joblib.dump(scaler, "../models/price_scaler.pkl")

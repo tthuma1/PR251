@@ -3,8 +3,8 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
-input_dir = '../data/kvadrati'
-output_dir = '../data/kvadrati_images'
+input_dir = '../data/kvadrati_new/pages'
+output_dir = '../data/kvadrati_new/images'
 
 # Create output directory if it doesn't exist
 os.makedirs(output_dir, exist_ok=True)

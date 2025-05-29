@@ -1,34 +1,49 @@
 import streamlit as st
-import numpy as np
-from PIL import Image
 import tensorflow as tf
+from PIL import Image
+import numpy as np
 import joblib
 
-# Load model and scaler
-model = tf.keras.models.load_model("real_estate_model.h5", compile=False)
-scaler = joblib.load("price_scaler.pkl")
-
-# Constants
+# --- Configuration ---
+MODEL_PATH = "../models/v11/real_estate_model.keras"
+SCALER_PATH = "../models/v11/price_scaler.pkl"
 IMAGE_SIZE = (224, 224)
 
-st.title("🏠 Real Estate Price Estimator from Images")
-st.write("Upload a photo of a property to estimate its price.")
+# --- Load model and scaler ---
+@st.cache_resource
+def load_model():
+    return tf.keras.models.load_model(MODEL_PATH)
 
-uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
+@st.cache_resource
+def load_scaler():
+    return joblib.load(SCALER_PATH)
+
+model = load_model()
+scaler = load_scaler()
+
+# --- Image preprocessing ---
+def preprocess_image(uploaded_file):
+    image = Image.open(uploaded_file).convert("RGB")
+    image = image.resize(IMAGE_SIZE)
+    image_array = np.array(image) / 255.0
+    image_array = np.expand_dims(image_array, axis=0)  # Add batch dim
+    return image_array
+
+# --- Streamlit UI ---
+st.title("🏠 Real Estate Price Predictor")
+st.write("Upload an image of the real estate property to predict its price.")
+
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
-    # Display image
-    image = Image.open(uploaded_file).convert("RGB")
-    st.image(image, caption="Uploaded Image", use_column_width=True)
+    st.image(uploaded_file, caption='Uploaded Image', use_column_width=True)
 
-    # Preprocess image
-    image = image.resize(IMAGE_SIZE)
-    img_array = np.array(image) / 255.0
-    img_array = np.expand_dims(img_array, axis=0)  # Add batch dim
-
-    # Predict
-    pred_scaled = model.predict(img_array)[0][0]
-    pred_price = scaler.inverse_transform([[pred_scaled]])[0][0]
-
-    st.subheader("💰 Estimated Price:")
-    st.write(f"**{pred_price:,.2f} currency units**")  # format as needed
+    with st.spinner("Predicting..."):
+        try:
+            img_array = preprocess_image(uploaded_file)
+            pred_scaled = model.predict(img_array)
+            print(pred_scaled)
+            pred_price = scaler.inverse_transform(pred_scaled)[0][0]
+            st.success(f"💰 Estimated Price: **{pred_price:,.2f} €**")
+        except Exception as e:
+            st.error(f"Error: {e}")
