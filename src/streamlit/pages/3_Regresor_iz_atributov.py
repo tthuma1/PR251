@@ -154,7 +154,7 @@ selected_region = st.selectbox(
     get_unique(nepremicnine_reg["correct_region"]),
 )
 
-selected_area = st.number_input(label="Vpišite površino:", min_value=0.0, step=0.01, value=80)
+selected_area = st.number_input(label="Vpišite površino:", min_value=0.0, step=0.01, value=80.0)
 
 selected_model = st.selectbox(
     "Izberite model:",
@@ -166,4 +166,4 @@ pipeline = get_pipeline(model=selected_model, data=nepremicnine_reg)
 new_data = pd.DataFrame({'correct_region': [selected_region], 'type': [selected_type], 'size': [selected_area]})
 prediction = pipeline.predict(new_data)
 
-st.write(f"Napovedana cena: **{str(round(prediction[0], 2))}** EUR")
+st.success(f"Napovedana cena: **{str(round(prediction[0], 2))}** EUR")

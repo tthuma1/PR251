@@ -11,7 +11,6 @@ from sklearn.preprocessing import OneHotEncoder
 
 import python_data
 
-
 # --- Configuration ---
 MODEL_PATH = "src/streamlit/data/image_model.keras"
 IMAGE_SIZE = (224, 224)
@@ -32,10 +31,18 @@ def preprocess_image(uploaded_file):
     return image_array
 
 # --- Streamlit UI ---
-st.title("Napovedovanje cene iz slike nepremičnine")
-st.write("Naloži sliko nepremičnine, da dobiš njeno ocenjeno ceno.")
+st.title("Napovedovanje cene nepremičnine")
 
-uploaded_file = st.file_uploader("Izberi sliko", type=["jpg", "jpeg", "png"])
+st.markdown(
+    """
+    Naš najboljši model za napoved cen je sestavljen iz dveh modelov. Prvi napove ceno iz slike in je implementiran s
+    konvolucijsko nevronsko mrežo, naučeno na ImageNet-1k zbirki in prilagojen na našo zbirko slik nepremičnin. Drugi pa ceno napove iz opisnih
+    atributov. Tu lahko izbiramo med različnimi modeli, ki vključujejo Gradient boosting, naključni gozd, Ridge in Lasso. Povprečna
+    napaka modela je 28% cene.
+    """
+)
+
+uploaded_file = st.file_uploader("Izberi sliko:", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     st.image(uploaded_file, caption='Naložena slika', use_container_width=True)

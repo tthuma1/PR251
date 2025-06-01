@@ -25,12 +25,16 @@ def preprocess_image(uploaded_file):
 
 # --- Streamlit UI ---
 st.title("Napovedovanje cene iz slike nepremičnine")
-st.write("Naloži sliko nepremičnine, da dobiš njeno ocenjeno ceno.")
+st.markdown(
+    """
+    Na tej strani je 
+    """
+)
 
 uploaded_file = st.file_uploader("Izberi sliko", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
-    st.image(uploaded_file, caption='Naložena slika', use_container_width=True)
+    st.image(uploaded_file, caption='Naložena slika:', use_container_width=True)
 
     with st.spinner("Razmišljam..."):
         try:
