@@ -1,11 +1,11 @@
-# Ko kvadratni metri spregovorijo – ali so slovenske nepremičnine "kuhane"?​
+# Ko kvadratni metri spregovorijo – ali so slovenske nepremičnine "kuhane"?
 
 ## Opis problema
 
 V seminarski nalogi se osredetočamo na pridobivanje znanj z analizo nepremičninskih oglasov, ki so objavljeni v aprilu 2025. Naša glavna vprašanja oz. cilji so:
 - Napovedovanje cene v odvisnosti od podanih atributov.
-- Ali se nakup novogradenj bolj splača od nakupa starejših nepremičnin?​
-- Katere nepremičninske agencije ponujajo najboljše ponudbe?​
+- Ali se nakup novogradenj bolj splača od nakupa starejših nepremičnin?
+- Katere nepremičninske agencije ponujajo najboljše ponudbe?
 - Kako se nepremičninski trg sklada s prebivalstvom posamezne regije?
 - Ustvarjanje napovednih modelov cene iz atributov, slik in opisov.
 
@@ -85,9 +85,11 @@ Iz zgornjih grafov sklepamo, da je po večini prodaja nepremičnin v skladu s po
 Pri napovedovanju cene z uporabo metode odločitvenih dreves je, če ocenjujemo glede na tip, regijo in površino nepremičnine (pri čemer na neštevilskih atributih uporabimo metodo one-hot encoding), najbolj pomemben atribut površina (pomembnost okoli 0,73), sledita pa mu tip nepremičnine in regija. Če pa napovedujemo ceno/m², torej le glede na tip in regijo, je najpomembnejši atribut, ali je nepremičnina tipa posest (pomembnost okoli 0,47), sledijo pa ostali tipi nepremičnin in regija. Na spodnjih slikah vidimo grafični prikaz pomembnosti atributov za absolutno in za relativno ceno.
 
 Pomembnost atributov za absolutno ceno:
+
 <img src="slike/atributi_absolute.png" width=600 />
 
 Pomembnost atributov za relativno ceno:
+
 <img src="slike/atributi_relative.png" width=600 />
 
 ### Regresor
@@ -106,13 +108,19 @@ R² na testnem setu (KNN): -0.005953077114646987
 R² na testnem setu (MLP): -0.44082198062659184
 ```
 
-### Analiza iz besedila
+### Analiza iz opisa
+
+Za učenje modela smo besedilne opise pretvoriti v vektorje z uporabo knjižnice `sentence_transformers` in modela `all-MiniLM-L6-v2`.
+Linearni regresijski model (RandomForest, Ridge, Lasso, ...) nam niso vrnili dobrih rezultatov,
+zato smo v drugem koraku uporabili jezikovni model BERT (`bert-base-multilingual-cased`), ki pa prav tako ni vrnil uporabnega modela.
+
+Iz tega lahko opazimo, da so opisi neprimeren podatek za napovedovanje cen nepremičnin.
 
 ### Analiza iz slik
 
 Večina oglasov ima podanih eno ali več slik nepremičnine. V naši podatkovni množici smo zbrali naslovne fotografije oglasov. Z njimi smo naučili konvolucijsko nevronsko mrežo za napoved cene na kvadratni meter iz podane slike. Za osnovni model smo vzeli ResNet50 mrežo z utežmi, določenimi iz podatkovne zbirke ImageNet-1k z ločljivostjo 224x224. Osnovnemu modelu smo za učenje odklenili zadnjih 20 plasti.
 
-Pri učenju so veliko težav povzročile fotografije, ki slabo predstavijo nepremičnino npr. ko je namesto hiše slikan bližnji gozd. Take fotografije smo deloma počistili z ročnim pregledom. Za učenje modela nam je ostalo okoli 44.000 fotografij. Model smo testirali na 1.000 fotografijah oglasov, ki so bili objavljeni po prvotnem zbiranju oglasov.
+Pri učenju so veliko težav povzročile fotografije, ki slabo predstavijo nepremičnino npr., ko je namesto hiše slikan bližnji gozd. Take fotografije smo deloma počistili z ročnim pregledom. Za učenje modela nam je ostalo okoli 44.000 fotografij. Model smo testirali na 1.000 fotografijah oglasov, ki so bili objavljeni po prvotnem zbiranju oglasov.
 
 Model je najbolj točen pri slikah, ki so blizu povprečja, kot je razvidno iz spodnjega grafa absolutnih napak.
 
