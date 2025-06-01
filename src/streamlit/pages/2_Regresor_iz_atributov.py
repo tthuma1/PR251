@@ -154,7 +154,7 @@ selected_region = st.selectbox(
     get_unique(nepremicnine_reg["correct_region"]),
 )
 
-selected_area = st.number_input(label="Vpišite površino:", min_value=0.0, step=0.01)
+selected_area = st.number_input(label="Vpišite površino:", min_value=0.0, step=0.01, value=80)
 
 selected_model = st.selectbox(
     "Izberite model:",
