@@ -79,7 +79,15 @@ Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v r
 
 Iz zgornjih grafov sklepamo, da je po večini prodaja nepremičnin v skladu s povpraševanjem. Kot regijo s preveč prodaje smo označili Obalno-kraško. V Osrednjeslovnski in Gorenjski regiji vidimo, da je oglasov sicer dovolj, ampak so cenovno nedostopni. Prostor za razširitev prodaje smo zaznali v Zasavki in Primorsko-notranjski regiji, kjer je zaenkrat relativno malo oglasov, ki so precej poceni. Tu pa se je treba spomniti, da ti dve regiji ne vključujeta večjih gospodarskih središč, kar lahko odvrne kupce.
 
-TODO
+### Pomembnost atributov
+
+Pri napovedovanju cene z uporabo metode odločitvenih dreves je, če ocenjujemo glede na tip, regijo in površino nepremičnine (pri čemer na neštevilskih atributih uporabimo metodo one-hot encoding), najbolj pomemben atribut površina (pomembnost okoli 0.78). Če pa napovedujemo ceno/m², torej le glede na tip in regijo, je najpomembnejši atribut ali je nepremičnina tipa poslovni prostor (pomembnost okoli 0.45). Na spodnjih slikah vidimo grafični prikaz pomembnosti atributov za absolutno in za relativno ceno.
+
+Pomembnost atributov za absolutno ceno:
+<img src="slike/atributi_absolute.png" width=600 />
+
+Pomembnost atributov za relativno ceno:
+<img src="slike/atributi_relative.png" width=600 />
 
 ### Analiza iz besedila
 
