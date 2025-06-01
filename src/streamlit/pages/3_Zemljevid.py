@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 
-df = pd.read_csv('data/kvadrati_normalized.csv')
+df = pd.read_csv('src/streamlit/data/kvadrati_normalized.csv')
 
 df['leto_gradnje'] = pd.to_numeric(df['leto_gradnje'], errors='coerce')
 df['cena'] = df['cena'].str.split().str.get(0).str.replace('.', '', regex=False).str.replace(',', '.')
