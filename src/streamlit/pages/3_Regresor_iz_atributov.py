@@ -154,12 +154,12 @@ col1, col2 = st.columns(2)
 
 with col1:
     selected_type = st.selectbox(
-        "Izberite tip nepremičnine:",
+        "Izberi tip nepremičnine:",
         get_unique(nepremicnine_reg["type"]),
     )
 
     selected_region = st.selectbox(
-        "Izberite regijo:",
+        "Izberi regijo:",
         get_unique(nepremicnine_reg["correct_region"]),
     )
 
@@ -167,7 +167,7 @@ with col2:
     selected_area = st.number_input(label="Vpišite površino:", min_value=0.0, step=0.01, value=80.0)
 
     selected_model = st.selectbox(
-        "Izberite model:",
+        "Izberi model:",
         models,
     )
 
