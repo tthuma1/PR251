@@ -96,7 +96,7 @@ st.markdown(
 
     Na spodnji vizualizaciji lahko opazujete ponudbe top ponudnikov nepremičnin glede na vpisane atribute. Najdite
     najboljšega prodajalca za vašo ciljno nepremičnino. V primeru, da več ponudnikov ustreza filtru, se izriše
-    15 ponudnikov z največ oglasi.
+    15 ponudnikov z največ oglasi. Prikazani so samo oglasi hiš in stanovanj.
     """
 )
 
@@ -125,13 +125,31 @@ else:
     cena_min_input = df['cena'].min()
     cena_max_input = df['cena'].max()
 
+filter_vrsta = st.checkbox("Vrsta", key=4)
+if filter_vrsta:
+    selected_type = st.selectbox(
+        "Izberi tip nepremičnine:",
+        ['Hiša', 'Stanovanje'],
+    )
+else:
+    selected_type = None
+
 with st.spinner("Pripravljam podatke..."):
-    filtered_df2 = df[
-        (df['leto_gradnje'] >= year_min_input) &
-        (df['leto_gradnje'] <= year_max_input) &
-        (df['cena'] >= cena_min_input) &
-        (df['cena'] <= cena_max_input)
-    ]
+    if selected_type is not None:
+        filtered_df2 = df[
+            (df['leto_gradnje'] >= year_min_input) &
+            (df['leto_gradnje'] <= year_max_input) &
+            (df['cena'] >= cena_min_input) &
+            (df['cena'] <= cena_max_input) &
+            (df['vrsta'] == selected_type)
+        ]
+    else:
+        filtered_df2 = df[
+            (df['leto_gradnje'] >= year_min_input) &
+            (df['leto_gradnje'] <= year_max_input) &
+            (df['cena'] >= cena_min_input) &
+            (df['cena'] <= cena_max_input)
+        ]
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -195,4 +213,4 @@ plt.tight_layout()
 st.pyplot(fig)
 
 st.subheader("Prikazane nepremičnine")
-st.dataframe(filtered_df[['naslov', 'leto_gradnje', 'cena', 'prodajalec_agencija', 'latitude', 'longitude']])
+st.dataframe(filtered_df[['naslov', 'leto_gradnje', 'cena', "vrsta", 'prodajalec_agencija', 'latitude', 'longitude']])
