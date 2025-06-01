@@ -126,6 +126,8 @@ Pri učenju so veliko težav povzročile fotografije, ki slabo predstavijo nepre
 
 V povprečju se model zmoti za 810 EUR/m2 oz. za 33%, kar je precej slabo. Veliko napako pripisujemo veliki količini prej opisanega šuma med slikami. Poleg tega so cene nepremičnin neenakomerno porazdeljene.
 
+### Končni napovedni model
+
 Za najbolj natančen model smo vzeli hibrid med modelom, ki napoveduje ceno iz slike, in med modelom, ki napoveduje ceno iz opisnih atributov. Vsak model je obtežen z 0,5. Z njim smo prišli do povprečne napake 28%. Model je najbolj točen pri primerih okoli povprečne cene (približno 3.000 EUR/m2), kar je razvidno tudi iz spodnjega grafa napak.
 
 <img src="slike/image_napake.png" width=600 />
