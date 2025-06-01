@@ -85,6 +85,16 @@ TODO
 
 ### Analiza iz slik
 
+Večina oglasov ima podanih eno ali več slik nepremičnine. V naši podatkovni množici smo zbrali naslovne fotografije oglasov. Z njimi smo naučili konvolucijsko nevronsko mrežo za napoved cene na kvadratni meter iz podane slike. Za osnovni model smo vzeli ResNet50 mrežo z utežmi, določenimi iz podatkovne zbirke ImageNet-1k z ločljivostjo 224x224. Osnovnemu modelu smo za učenje odklenili zadnjih 20 plasti.
+
+Pri učenju so veliko težav povzročile fotografije, ki slabo predstavijo nepremičnino npr. ko je namesto hiše slikan bližnji gozd. Take fotografije smo deloma počistili z ročnim pregledom. Za učenje modela nam je ostalo okoli 44.000 fotografij. Model smo testirali na 1.000 fotografijah oglasov, ki so bili objavljeni po prvotnem zbiranju oglasov.
+
+Model je najbolj točen pri slikah, ki so blizu povprečja, kot je razvidno iz spodnjega grafa absolutnih napak.
+
+<img src="slike/image_napake.png" width=600 />
+
+V povprečju se model zmoti za 810 EUR/m2 oz. za 33%, kar je precej slabo. Veliko napako pripisujemo veliki količini prej opisanega šuma med slikami.
+
 ### Regresor
 
 ### Interaktivni zemljevid
