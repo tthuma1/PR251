@@ -1,6 +1,6 @@
 # Ko kvadratni metri spregovorijo – ali so slovenske nepremičnine "kuhane"?
 
-Streamlit aplikacija je objavljena na [https://pr251-nepremicnine.streamlit.app/]().
+Streamlit aplikacija je objavljena na [https://pr251-nepremicnine.streamlit.app](https://pr251-nepremicnine.streamlit.app).
 
 ## Opis problema
 
@@ -15,7 +15,7 @@ Do vmesnega poročila smo zbrali vse ustrezne podatke in jih predstavili z razni
 
 ## Zajemanje podatkov
 
-Podatke smo zajemali iz spletnih strani [nepremicnine.net](), [mojikvadrati.com]() in [bolha.com]().
+Podatke smo zajemali iz spletnih strani [nepremicnine.net](https://nepremicnine.net), [mojikvadrati.com](https://mojikvadrati.com) in [bolha.com](https://bolha.com).
 
 Za obhod raznih zaščit strani pred roboti smo uporabili knjižnico `hrequests`. Podatke smo dobili iz HTML-ja strani, saj nobena stran nima ustreznega odprtega vmesnika. Za branje podatkov iz HTML strukture smo uporabili knjižnico `BeautifulSoup`.
 
