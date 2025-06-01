@@ -79,20 +79,6 @@ Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v r
 
 Iz zgornjih grafov sklepamo, da je po večini prodaja nepremičnin v skladu s povpraševanjem. Kot regijo s preveč prodaje smo označili Obalno-kraško. V Osrednjeslovnski in Gorenjski regiji vidimo, da je oglasov sicer dovolj, ampak so cenovno nedostopni. Prostor za razširitev prodaje smo zaznali v Zasavki in Primorsko-notranjski regiji, kjer je zaenkrat relativno malo oglasov, ki so precej poceni. Tu pa se je treba spomniti, da ti dve regiji ne vključujeta večjih gospodarskih središč, kar lahko odvrne kupce.
 
-### Regresor
-
-Uporabili smo več različnih regresijskih modelov za napovedovanje cene glede na površino, regijo in tip nepremičnine. Najboljše rezultate, glede na prečno preverjanje, sta dala GradientBoosting in RandomForestRegressor, pri katerem sta bili optimalni globini 5 in 6 (R² med 0,3 in 0,5). Modeli LinearRegression, Ridge in Lasso so nekoliko slabši z R² med 0 in 1,5, medtem ko R² modelov KNeighborsRegressor in MLPRegressor pogosto ne preseže 0.
-
-Primer prečne validacije na testni množici velikosti 0,2:
-```R² na testnem setu (LinearRegression): 0.10430657870022642
-R² na testnem setu (Ridge): 0.08497044209656046
-R² na testnem setu (Lasso): 0.12098481134349481
-R² na testnem setu (RandomForest5): 0.43190956529848945
-R² na testnem setu (RandomForest6): 0.4549999146831979
-R² na testnem setu (GradientBoosting): 0.46266591862521667
-R² na testnem setu (KNN): -0.005953077114646987
-R² na testnem setu (MLP): -0.44082198062659184
-```
 
 ### Pomembnost atributov
 
@@ -103,6 +89,22 @@ Pomembnost atributov za absolutno ceno:
 
 Pomembnost atributov za relativno ceno:
 <img src="slike/atributi_relative.png" width=600 />
+
+### Regresor
+
+Uporabili smo več različnih regresijskih modelov za napovedovanje cene glede na površino, regijo in tip nepremičnine. Najboljše rezultate, glede na prečno preverjanje, sta dala GradientBoosting in RandomForestRegressor, pri katerem sta bili optimalni globini 5 in 6 (R² med 0,3 in 0,5). Modeli LinearRegression, Ridge in Lasso so nekoliko slabši z R² med 0 in 0,15, medtem ko R² modelov KNeighborsRegressor in MLPRegressor pogosto ne preseže 0.
+
+Primer prečne validacije na testni množici velikosti 0,2:
+```
+R² na testnem setu (LinearRegression): 0.10430657870022642
+R² na testnem setu (Ridge): 0.08497044209656046
+R² na testnem setu (Lasso): 0.12098481134349481
+R² na testnem setu (RandomForest5): 0.43190956529848945
+R² na testnem setu (RandomForest6): 0.4549999146831979
+R² na testnem setu (GradientBoosting): 0.46266591862521667
+R² na testnem setu (KNN): -0.005953077114646987
+R² na testnem setu (MLP): -0.44082198062659184
+```
 
 ### Analiza iz besedila
 
