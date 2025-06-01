@@ -8,6 +8,7 @@ V seminarski nalogi se osredetočamo na pridobivanje znanj z analizo nepremični
 - Ali se nakup novogradenj bolj splača od nakupa starejših nepremičnin?
 - Katere nepremičninske agencije ponujajo najboljše ponudbe?
 - Kako se nepremičninski trg sklada s prebivalstvom posamezne regije?
+- Kateri atributi najbolj vplivajo na ceno nepremičnin?
 - Ustvarjanje napovednih modelov cene iz atributov, slik in opisov.
 
 V glavnem smo se osredotočili na oglase za prodajo hiš in stanovanj.
@@ -56,19 +57,20 @@ Pogledali smo, kolikšen delež nepremičninskega trga zaseda posamezna agencija
 
 Vidimo, da velike franšize, kot so CENTURY 21, RE/MAX in KW nimajo ogromnega tržnega deleža. Ta je namreč dokaj enakomerno razporejen med stotine manjših agencij.
 
-Samo s pogledom na cene je težko določiti, katera agencija ima najboljše ponudbe, saj vsaka agencija prodaja velik spekter vrst nepremičnin. Njena povprečna cena se tako prilagodi vrsti nepremičnine, ki jo najpogosteje prodajajo (luksuzne vile ali zanemarjene hiše). Vidimo, da obstajajo agencije, ki se osredotočajo na nepremičnine z nizko vrednostjo (RENES, Agenti, LAND), nihče pa se ne osredotoča samo na luksuzne nepremičnine, čeprav se Ljubljana nepremičnine in INFINIS temu približata.
+Samo s pogledom na cene je težko določiti, katera agencija ima najboljše ponudbe, saj vsaka agencija prodaja velik spekter vrst nepremičnin. Njena povprečna cena se tako prilagodi vrsti nepremičnine, ki jo najpogosteje prodajajo (luksuzne vile ali zanemarjene hiše). Trdimo torej, da ne moremo določiti ene najboljše agencije, saj se vse prilagodijo razmeram na trgu.
 
 Glej [dodatek.md](dodatek.md).
 
 
 ### Cena v odvnisnosti od demografskih atributov
 
+<img src="slike/stoglasov_na_prebivalca.png" width=600 />
 
 <img src="slike/regije_cene_placa.png" width=600 />
 
 Na prvem zemljevidu lahko opazujemo regije, ki imajo veliko ponudbo nepremičnin na prebivalca. To lahko namiguje k temu, da ima tam manj ljudi stalne naslove, torej gre večinoma za vikende. Tu izstopa Obala, kar ni presenetljivo. Vidimo tudi, da je v Zasavski regiji premalo ponudbe glede na število prebivalcev.
 
-Na naslednjem zemljevidu pa vidimo razmerje med povprečno ceno nepremičnin in povprečno neto plačo prebivalcev te regije. To nam pove, koliko mesecev bi prebivalec neke regije moral delati, da bi si lahko privoščil povprečno stanovanje/hišo, brez da upoštevamo druge mesečne stroške. Na tem zemljevidu prevladujeta Osrednjeslovenska in Obalno-kraška regija. Najbolj ugodne regije pa so Zasavksa, Primorsko-notranjska in Pomurska regija.
+Na naslednjem zemljevidu vidimo razmerje med povprečno ceno nepremičnin in povprečno neto plačo prebivalcev te regije. To nam pove, koliko mesecev bi prebivalec neke regije moral delati, da bi si lahko privoščil povprečno stanovanje/hišo, brez da upoštevamo druge mesečne stroške. Na tem zemljevidu prevladujeta Osrednjeslovenska in Obalno-kraška regija. Najbolj ugodne regije pa so Zasavksa, Primorsko-notranjska in Pomurska regija.
 
 Iz zgornjih grafov sklepamo, da je po večini prodaja nepremičnin v skladu s povpraševanjem. Kot regijo s preveč prodaje smo označili Obalno-kraško. V Osrednjeslovnski in Gorenjski regiji vidimo, da je oglasov sicer dovolj, ampak so cenovno nedostopni. Prostor za razširitev prodaje smo zaznali v Zasavki in Primorsko-notranjski regiji, kjer je zaenkrat relativno malo oglasov, ki so precej poceni. Tu pa se je treba spomniti, da ti dve regiji ne vključujeta večjih gospodarskih središč, kar lahko odvrne kupce.
 
