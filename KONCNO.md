@@ -122,12 +122,11 @@ Večina oglasov ima podanih eno ali več slik nepremičnine. V naši podatkovni 
 
 Pri učenju so veliko težav povzročile fotografije, ki slabo predstavijo nepremičnino npr., ko je namesto hiše slikan bližnji gozd. Take fotografije smo deloma počistili z ročnim pregledom. Za učenje modela nam je ostalo okoli 44.000 fotografij. Model smo testirali na 1.000 fotografijah oglasov, ki so bili objavljeni po prvotnem zbiranju oglasov.
 
-Model je najbolj točen pri slikah, ki so blizu povprečja, kot je razvidno iz spodnjega grafa absolutnih napak.
-
-<img src="slike/image_napake.png" width=600 />
-
 V povprečju se model zmoti za 810 EUR/m2 oz. za 33%, kar je precej slabo. Veliko napako pripisujemo veliki količini prej opisanega šuma med slikami. Poleg tega so cene nepremičnin neenakomerno porazdeljene.
 
+Za najbolj natančen model smo vzeli hibrid med modelom, ki napoveduje ceno iz slike, in med modelom, ki napoveduje ceno iz opisnih atributov. Vsak model je obtežen z 0,5. Z njim smo prišli do povprečne napake 28%. Model je najbolj točen pri primerih okoli povprečne cene (približno 3.000 EUR/m2), kar je razvidno tudi iz spodnjega grafa napak.
+
+<img src="slike/image_napake.png" width=600 />
 
 ### Interaktivni zemljevid
 
