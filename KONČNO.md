@@ -10,7 +10,7 @@ V seminarski nalogi se osredetočamo na pridobivanje znanj z analizo nepremični
 - Kako se nepremičninski trg sklada s prebivalstvom posamezne regije?
 - Ustvarjanje napovednih modelov cene iz atributov, slik in opisov.
 
-Do vmesnega poročila smo zbrali vse ustrezne podatke in jih predstavili z raznimi vizualizacijami. V glavnem smo se osredotočili na oglase za prodajo hiš in stanovanj.
+V glavnem smo se osredotočili na oglase za prodajo hiš in stanovanj.
 
 ## Zajemanje podatkov
 
@@ -27,19 +27,19 @@ Za začetek smo pogledali, kako se cene odražajo glede na lokacijo. Spodaj je p
 
 Vidimo, da se pojavijo območja, kjer je veliko dragih nepremičnin, kot sta Ljubljana in Obala. Nekaj dragih nepremičnin se pojavi še v krajih, od koder se ljudje pogosto vozijo v Ljubljano, kot so Kranj, Domžale in Grosuplje. Drage nepremičnine se pojavijo še v Jesenicah, Kranjski gori in Novi Gorici. Zanimivo je, da je v okolici Maribora in v Savinjski regiji na voljo veliko nepremičnin, ki pa so relativno poceni.
 
-### Povezava starosti z izbranimi atributi
+### Vpliv starosti na ostale značilnosti nepremičnine
 
 Da smo preverili, ali starost gradnje vpliva na ceno, smo narisali razsevni diagram in preverili Pearsonov koeficient.
 
 <img src="slike/cena_leto.png" width="700" />
 
-Vidimo, da ima starost gradnje nizko stopnjo korelacije s ceno. To nam pove tudi nizek Pearsonov koeficient (0,17). Stare nepremičnine so namreč pogosto adaptirane, zaradi česar jim vrednost ne pada. V povprečju je namreč nepremičnina adaptirana po 75 letih. Res pa je, da je povprečna cena na kvadratni meter nepremičnin zgrajenih po letu 2020 kar za 26% višja od povprečne cene ostalih nepremičnin (2970 proti 3740 EUR/m2). Iz tega lahko trdimo, da se nakup nepremičnin, ki so starejše okoli 5 let bolj splača od nakupa novogradenj.
+Vidimo, da ima starost gradnje nizko stopnjo korelacije s ceno. To nam pove tudi nizek Pearsonov koeficient (0,17). Stare nepremičnine so namreč pogosto adaptirane, zaradi česar jim vrednost ne pada. V povprečju je namreč nepremičnina adaptirana po 75 letih. Res pa je, da je povprečna cena na kvadratni meter nepremičnin zgrajenih po letu 2020 kar za 26% višja od povprečne cene ostalih nepremičnin (2970 proti 3740 EUR/m2).
 
 Kot pričakovano, so novogradnje poleg višje cene tudi bolj energetsko učinkovite. Iz tega sledi, da je tudi med ceno in energetsko učinkovitostjo korelacija, čeprav dokaj nizke stopnje.
 
 <img src="slike/energija_leto.png" width="700" />
 
-Za novogradnje bomo torej odšteli več denarja, ampak običajno dobimo bistveno boljši produkt.
+Za novogradnje bomo torej odšteli več denarja, ampak običajno dobimo boljši produkt. Kljub temu trdimo, da se nakup nepremičnin, ki so starejše okoli 5 let bolj splača od nakupa novogradenj.
 
 Poglejmo si še, kje se nahaja največ novogradenj:
 
