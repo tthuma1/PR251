@@ -143,23 +143,33 @@ nepremicnine = get_data('src/streamlit/data/nepremicnine_prodaja.csv')
 nepremicnine_reg, nepremicnine_norm = get_formatted(nepremicnine)
 
 st.title('Napovedovanje cene glede na atribute')
-
-selected_type = st.selectbox(
-    "Izberite tip nepremičnine:",
-    get_unique(nepremicnine_reg["type"]),
+st.markdown(
+    """
+    Na tej strani je napoved cene izvedena izključno z modelom za napoved iz atributov. Na voljo je več
+    modelov -- Gradient boosting, naključni gozd, Ridge, Lasso in linearna regresija.
+    """
 )
 
-selected_region = st.selectbox(
-    "Izberite regijo:",
-    get_unique(nepremicnine_reg["correct_region"]),
-)
+col1, col2 = st.columns(2)
 
-selected_area = st.number_input(label="Vpišite površino:", min_value=0.0, step=0.01, value=80.0)
+with col1:
+    selected_type = st.selectbox(
+        "Izberite tip nepremičnine:",
+        get_unique(nepremicnine_reg["type"]),
+    )
 
-selected_model = st.selectbox(
-    "Izberite model:",
-    models,
-)
+    selected_region = st.selectbox(
+        "Izberite regijo:",
+        get_unique(nepremicnine_reg["correct_region"]),
+    )
+
+with col2:
+    selected_area = st.number_input(label="Vpišite površino:", min_value=0.0, step=0.01, value=80.0)
+
+    selected_model = st.selectbox(
+        "Izberite model:",
+        models,
+    )
 
 pipeline = get_pipeline(model=selected_model, data=nepremicnine_reg)
 

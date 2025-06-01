@@ -37,7 +37,7 @@ st.markdown(
     """
     Naš najboljši model za napoved cen je sestavljen iz dveh modelov. Prvi napove ceno iz slike in je implementiran s
     konvolucijsko nevronsko mrežo, naučeno na ImageNet-1k zbirki in prilagojen na našo zbirko slik nepremičnin. Drugi pa ceno napove iz opisnih
-    atributov. Tu lahko izbiramo med različnimi modeli, ki vključujejo Gradient boosting, naključni gozd, Ridge in Lasso. Povprečna
+    atributov. Tu lahko izbiramo med različnimi modeli, ki vključujejo Gradient boosting, naključni gozd, Ridge, Lasso in linearno regresijo. Povprečna
     napaka modela je 28% cene.
     """
 )
@@ -160,20 +160,20 @@ col1, col2 = st.columns(2)
 
 with col1:
     selected_type = st.selectbox(
-        "Izberite tip nepremičnine:",
+        "Izberi tip nepremičnine:",
         get_unique(nepremicnine_reg["type"]),
     )
 
     selected_region = st.selectbox(
-        "Izberite regijo:",
+        "Izberi regijo:",
         get_unique(nepremicnine_reg["correct_region"]),
     )
 
 with col2:
-    selected_area = st.number_input(label="Vpišite površino:", min_value=1.0, step=0.01, value=80.0)
+    selected_area = st.number_input(label="Vpiši površino:", min_value=1.0, step=0.01, value=80.0)
 
     selected_model = st.selectbox(
-        "Izberite model:",
+        "Izberi model:",
         models,
     )
 

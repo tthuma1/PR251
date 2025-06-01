@@ -27,7 +27,8 @@ def preprocess_image(uploaded_file):
 st.title("Napovedovanje cene iz slike nepremičnine")
 st.markdown(
     """
-    Na tej strani je 
+    Na tej strani je napoved cene izvedena izključno z modelom za napoved iz slike, ki je opisan na strani
+    [Napovedovalec cene](pages/1_Napovedovalec_cene.py). Povprečna napaka modela je 33%.
     """
 )
 

@@ -17,7 +17,14 @@ df['longitude'] = pd.to_numeric(df['longitude'], errors='coerce')
 df = df.dropna(subset=['latitude', 'longitude'])
 
 st.title("Nepremičnine po Sloveniji")
-st.markdown("### Zemljevid nepremičnin")
+st.markdown(
+    """
+    ### Zemljevid nepremičnin
+
+    Na spodnjem zemljevidu lahko raziskujete našo podatkovno zbirko z nastavljanjem filtrov o letu gradnje in ceni
+    nepremičnin.
+    """
+)
 
 filter_year = st.checkbox("Leto gradnje")
 if filter_year:
@@ -44,35 +51,37 @@ else:
     cena_min_input = df['cena'].min()
     cena_max_input = df['cena'].max()
 
-filtered_df = df[
-    (df['leto_gradnje'] >= year_min_input) &
-    (df['leto_gradnje'] <= year_max_input) &
-    (df['cena'] >= cena_min_input) &
-    (df['cena'] <= cena_max_input)
-]
+with st.spinner("Pripravljam podatke..."):
+    filtered_df = df[
+        (df['leto_gradnje'] >= year_min_input) &
+        (df['leto_gradnje'] <= year_max_input) &
+        (df['cena'] >= cena_min_input) &
+        (df['cena'] <= cena_max_input)
+    ]
 
-gdf = gpd.GeoDataFrame(
-    filtered_df,
-    geometry=[Point(xy) for xy in zip(filtered_df['longitude'], filtered_df['latitude'])],
-    crs="EPSG:4326"
-)
+    gdf = gpd.GeoDataFrame(
+        filtered_df,
+        geometry=[Point(xy) for xy in zip(filtered_df['longitude'], filtered_df['latitude'])],
+        crs="EPSG:4326"
+    )
 
-# Zemljevid Slovenije
-fig, ax = plt.subplots(figsize=(9, 11), subplot_kw={'projection': ccrs.PlateCarree()})
-ax.set_extent([13.3, 16.6, 45.4, 47.2])  # cela Slovenija
+with st.spinner("Rišem zemljevid..."):
+    # Zemljevid Slovenije
+    fig, ax = plt.subplots(figsize=(9, 11), subplot_kw={'projection': ccrs.PlateCarree()})
+    ax.set_extent([13.3, 16.6, 45.4, 47.1])  # cela Slovenija
 
-ax.add_feature(cfeature.BORDERS, linewidth=0.5)
-ax.add_feature(cfeature.COASTLINE, linewidth=0.3)
-ax.add_feature(cfeature.LAND, facecolor='lightgrey')
-ax.add_feature(cfeature.RIVERS, linewidth=0.5, alpha=0.5)
-ax.gridlines(draw_labels=True)
+    ax.add_feature(cfeature.BORDERS, linewidth=0.5)
+    ax.add_feature(cfeature.COASTLINE, linewidth=0.3)
+    ax.add_feature(cfeature.LAND, facecolor='lightgrey')
+    ax.add_feature(cfeature.RIVERS, linewidth=0.5, alpha=0.5)
+    ax.gridlines(draw_labels=True)
 
-gdf.plot(ax=ax, color='red', markersize=5, label='Nepremičnine')
+    gdf.plot(ax=ax, color='red', markersize=5, label='Nepremičnina')
 
-ax.set_title("Nepremičnine po Sloveniji")
-ax.set_xlabel("Longitude")
-ax.set_ylabel("Latitude")
-ax.legend()
+    ax.set_title("Nepremičnine po Sloveniji")
+    ax.set_xlabel("Longitude")
+    ax.set_ylabel("Latitude")
+    ax.legend()
 
 st.pyplot(fig)
 
