@@ -94,8 +94,9 @@ st.markdown(
     """
     ### Vizualizacija ponudnikov
 
-    Na spodnji vizualizaciji lahko opaujete ponudbe top ponudnikov nepremičnin glede na vpisane atribute. Najdite
-    najboljšega prodajalca za vašo ciljno nepremičnino.
+    Na spodnji vizualizaciji lahko opazujete ponudbe top ponudnikov nepremičnin glede na vpisane atribute. Najdite
+    najboljšega prodajalca za vašo ciljno nepremičnino. V primeru, da več ponudnikov ustreza filtru, se izriše
+    15 ponudnikov z največ oglasi.
     """
 )
 
@@ -152,20 +153,16 @@ filtered_df2 = filtered_df2[(filtered_df2['cena_na_m2'].notnull()) & (filtered_d
 counts = filtered_df2['prodajalec_agencija'].value_counts()
 
 # Izberi samo agencije z vsaj 45 vrsticami
-valid_agencies = counts[counts >= 45].sort_values().index
+valid_agencies = counts[counts >= (counts.iloc[14] if len(counts) >= 15 else 0)].sort_values().index
+ordered_agencies = counts[counts >= (counts.iloc[14] if len(counts) >= 15 else 0)].sort_values(ascending=False).index
+
+mean_values = filtered_df2.groupby('prodajalec_agencija')['cena_na_m2'].mean().loc[ordered_agencies]
 
 # Filtriraj DataFrame, da vsebuje le validne agencije
 filtered_df = filtered_df2[(filtered_df2['prodajalec_agencija'].isin(valid_agencies))]
 filtered_df = filtered_df[(filtered_df2["vrsta"] == "Stanovanje") | (filtered_df2["vrsta"] == "Hiša")]
 
-ordered_agencies = counts[counts >= 45].sort_values(ascending=False).index
-
-mean_values = filtered_df.groupby('prodajalec_agencija')['cena_na_m2'].mean().loc[ordered_agencies]
-
 filtered_df = filtered_df[filtered_df['id'].isin(filtered_df2['id'])]
-
-print(filtered_df)
-print(filtered_df2)
 
 # Ustvari scatter plot za filtrirane in sortirane agencije
 fig = plt.figure(figsize=(12, 6))
@@ -197,5 +194,5 @@ plt.tight_layout()
 
 st.pyplot(fig)
 
-# st.subheader("Prikazane nepremičnine")
-# st.dataframe(filtered_df[['naslov', 'leto_gradnje', 'cena', 'latitude', 'longitude']])
+st.subheader("Prikazane nepremičnine")
+st.dataframe(filtered_df[['naslov', 'leto_gradnje', 'cena', 'prodajalec_agencija', 'latitude', 'longitude']])
