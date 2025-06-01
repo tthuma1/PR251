@@ -1,6 +1,6 @@
 # Ko kvadratni metri spregovorijo – ali so slovenske nepremičnine "kuhane"?
 
-Streamlit aplikacija je objavljena na [https://pr251-nepremicnine.streamlit.app](https://pr251-nepremicnine.streamlit.app).
+Streamlit aplikacija je objavljena na [https://pr251-nepremicnine1.streamlit.app/](https://pr251-nepremicnine1.streamlit.app/).
 
 ## Opis problema
 
