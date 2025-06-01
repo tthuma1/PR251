@@ -2,6 +2,8 @@ import os
 import re
 import requests
 from bs4 import BeautifulSoup
+from PIL import Image
+from io import BytesIO
 
 input_dir = '../data/kvadrati_new/pages'
 output_dir = '../data/kvadrati_new/images'
@@ -33,9 +35,16 @@ for filename in os.listdir(input_dir):
     try:
         response = requests.get(img_url)
         response.raise_for_status()
+
+        img = Image.open(BytesIO(response.content))
         img_path = os.path.join(output_dir, f"{file_number}.jpg")
-        with open(img_path, 'wb') as img_file:
-            img_file.write(response.content)
-        print(f"Saved image for {filename} as {file_number}.jpg")
+
+        # Convert to RGB if not already JPEG-compatible (e.g. PNG with alpha)
+        if img.mode in ("RGBA", "P"):
+            img = img.convert("RGB")
+
+        img.save(img_path, format="JPEG")
+        print(f"Saved valid JPEG image for {filename} as {file_number}.jpg")
+
     except Exception as e:
-        print(f"Failed to download image from {img_url} in {filename}: {e}")
+        print(f"Failed to process image from {img_url} in {filename}: {e}")
