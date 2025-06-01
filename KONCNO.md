@@ -107,6 +107,4 @@ V povprečju se model zmoti za 810 EUR/m2 oz. za 33%, kar je precej slabo. Velik
 
 ### Interaktivni zemljevid
 
-
-
-
+V streamlitu smo implementirali zemljevid, ki prikazuje porazdelitev nepremičnin po Sloveniji. Z uporabo filtrov za ceno in leto gradnje lahko preverimo npr. kje se nahajajo najdražje ali najcenejše nepremičnine ter v katerih regijah je več novogradenj. Tako lahko enostavno primerjamo med različnimi območji in morda prepoznamo trende na trgu kot so območja z intenzivnejšo gradnjo.
