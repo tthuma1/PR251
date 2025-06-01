@@ -87,3 +87,115 @@ st.pyplot(fig)
 
 st.subheader("Prikazane nepremičnine")
 st.dataframe(filtered_df[['naslov', 'leto_gradnje', 'cena', 'latitude', 'longitude']])
+
+########### agencije
+
+st.markdown(
+    """
+    ### Vizualizacija ponudnikov
+
+    Na spodnji vizualizaciji lahko opaujete ponudbe top ponudnikov nepremičnin glede na vpisane atribute. Najdite
+    najboljšega prodajalca za vašo ciljno nepremičnino.
+    """
+)
+
+filter_year = st.checkbox("Leto gradnje", key=2)
+if filter_year:
+    min_year = int(df['leto_gradnje'].min(skipna=True))
+    col1, col2 = st.columns(2)
+    with col1:
+        year_min_input = st.number_input("Min. leto gradnje", min_value=min_year, max_value=2025, value=min_year)
+    with col2:
+        year_max_input = st.number_input("Max. leto gradnje", min_value=min_year, max_value=2025, value=2025)
+else:
+    year_min_input = df['leto_gradnje'].min()
+    year_max_input = df['leto_gradnje'].max()
+
+filter_cena = st.checkbox("Cena", key=3)
+if filter_cena:
+    min_cena = int(df['cena'].min(skipna=True))
+    max_cena = int(df['cena'].max(skipna=True))
+    col3, col4 = st.columns(2)
+    with col3:
+        cena_min_input = st.number_input("Min. cena", min_value=0, max_value=max_cena, value=min_cena)
+    with col4:
+        cena_max_input = st.number_input("Max. cena", min_value=0, max_value=max_cena, value=max_cena)
+else:
+    cena_min_input = df['cena'].min()
+    cena_max_input = df['cena'].max()
+
+with st.spinner("Pripravljam podatke..."):
+    filtered_df2 = df[
+        (df['leto_gradnje'] >= year_min_input) &
+        (df['leto_gradnje'] <= year_max_input) &
+        (df['cena'] >= cena_min_input) &
+        (df['cena'] <= cena_max_input)
+    ]
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+def get_velikost(v):
+    split_v = str(v).split()
+    try:
+        return float(split_v[0].replace(',', '.'))
+    except ValueError:
+        return None
+
+
+
+
+df['velikost_clean'] = df['velikost'].apply(get_velikost)
+df['cena_na_m2'] = df['cena'] / df['velikost_clean']
+kvadrati_cene = df[(df['cena_na_m2'].notnull()) & (df['cena_na_m2'] < 15000) & (df['cena_na_m2'] > 50)]
+# kvadrati_cene = df[(df['cena'].notnull())]
+counts = kvadrati_cene['prodajalec_agencija'].value_counts()
+
+# Izberi samo agencije z vsaj 45 vrsticami
+valid_agencies = counts[counts >= 45].sort_values().index
+
+# Filtriraj DataFrame, da vsebuje le validne agencije
+filtered_df = kvadrati_cene[(kvadrati_cene['prodajalec_agencija'].isin(valid_agencies))]
+filtered_df = filtered_df[(kvadrati_cene["vrsta"] == "Stanovanje") | (kvadrati_cene["vrsta"] == "Hiša")]
+
+ordered_agencies = counts[counts >= 45].sort_values(ascending=False).index
+
+mean_values = filtered_df.groupby('prodajalec_agencija')['cena_na_m2'].mean().loc[ordered_agencies]
+
+filtered_df = filtered_df[filtered_df['id'].isin(filtered_df2['id'])]
+
+print(filtered_df)
+print(filtered_df2)
+
+# Ustvari scatter plot za filtrirane in sortirane agencije
+fig = plt.figure(figsize=(12, 6))
+
+sns.stripplot(
+    data=filtered_df,
+    y='prodajalec_agencija',
+    x='cena_na_m2',
+    order=ordered_agencies,
+    alpha=0.7,
+    hue='prodajalec_agencija',
+    palette='Set2', 
+    legend=None
+)
+sns.scatterplot(
+    y=ordered_agencies,
+    x=mean_values.values,
+    color='r',
+    marker='o',
+    s=50,
+    zorder=10,
+    label="Povprečje"
+)
+
+plt.title('Cene na m² za prodajalce', fontsize=14)
+plt.xlabel('Agencija', fontsize=12)
+plt.ylabel('Cena na m² (€)', fontsize=12)
+plt.tight_layout()
+
+st.pyplot(fig)
+
+# st.subheader("Prikazane nepremičnine")
+# st.dataframe(filtered_df[['naslov', 'leto_gradnje', 'cena', 'latitude', 'longitude']])
