@@ -5,7 +5,7 @@ import numpy as np
 import joblib
 
 # --- Configuration ---
-MODEL_PATH = "../../models/v16/model.keras"
+MODEL_PATH = "data/image_model.keras"
 IMAGE_SIZE = (224, 224)
 
 # --- Load model and scaler ---

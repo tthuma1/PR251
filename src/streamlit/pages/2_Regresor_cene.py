@@ -138,7 +138,7 @@ models = {
 
 #endregion Data set-up
 
-nepremicnine = get_data('../../data/nepremicnine/nepremicnine_prodaja.csv')
+nepremicnine = get_data('data/nepremicnine_prodaja.csv')
 
 nepremicnine_reg, nepremicnine_norm = get_formatted(nepremicnine)
 

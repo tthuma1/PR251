@@ -1,6 +1,6 @@
 .venv
 .DS_Store
-data
+/data/
 models
 .npz
 __pycache__
