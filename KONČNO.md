@@ -5,7 +5,6 @@ Streamlit aplikacija je objavljena na [https://pr251-nepremicnine.streamlit.app]
 ## Opis problema
 
 V seminarski nalogi se osredetočamo na pridobivanje znanj z analizo nepremičninskih oglasov, ki so objavljeni v aprilu 2025. Naša glavna vprašanja oz. cilji so:
-- Napovedovanje cene v odvisnosti od podanih atributov.
 - Ali se nakup novogradenj bolj splača od nakupa starejših nepremičnin?
 - Katere nepremičninske agencije ponujajo najboljše ponudbe?
 - Kako se nepremičninski trg sklada s prebivalstvom posamezne regije?
@@ -16,12 +15,7 @@ Do vmesnega poročila smo zbrali vse ustrezne podatke in jih predstavili z razni
 ## Zajemanje podatkov
 
 Podatke smo zajemali iz spletnih strani [nepremicnine.net](https://nepremicnine.net), [mojikvadrati.com](https://mojikvadrati.com) in [bolha.com](https://bolha.com).
-
-Za obhod raznih zaščit strani pred roboti smo uporabili knjižnico `hrequests`. Podatke smo dobili iz HTML-ja strani, saj nobena stran nima ustreznega odprtega vmesnika. Za branje podatkov iz HTML strukture smo uporabili knjižnico `BeautifulSoup`.
-
-Vnosom iz zbirke strani `mojikvadrati.com` smo dodali še podatke o koordinatah. Za to smo uporabili knjižnico `geopy`. Koordinate smo dobili iz naslovov oglasov, vendar zaradi narave podatkov včasih koordinate niso točne.
-
-Skupaj smo zbrali nad 70.000 oglasov, ki smo jih zapisali v `csv` datoteke.
+Skupaj smo zbrali nad 70.000 oglasov, ki smo jih zapisali v `csv` datoteke. Podrobnejši postopek zajemanja je predstavljen v datoteki [podatki.md](podatki.md).
 
 ## Vizualizacije
 
