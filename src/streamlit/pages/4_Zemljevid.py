@@ -145,18 +145,18 @@ def get_velikost(v):
 
 
 
-df['velikost_clean'] = df['velikost'].apply(get_velikost)
-df['cena_na_m2'] = df['cena'] / df['velikost_clean']
-kvadrati_cene = df[(df['cena_na_m2'].notnull()) & (df['cena_na_m2'] < 15000) & (df['cena_na_m2'] > 50)]
+filtered_df2['velikost_clean'] = filtered_df2['velikost'].apply(get_velikost)
+filtered_df2['cena_na_m2'] = filtered_df2['cena'] / filtered_df2['velikost_clean']
+filtered_df2 = filtered_df2[(filtered_df2['cena_na_m2'].notnull()) & (filtered_df2['cena_na_m2'] < 15000) & (filtered_df2['cena_na_m2'] > 50)]
 # kvadrati_cene = df[(df['cena'].notnull())]
-counts = kvadrati_cene['prodajalec_agencija'].value_counts()
+counts = filtered_df2['prodajalec_agencija'].value_counts()
 
 # Izberi samo agencije z vsaj 45 vrsticami
 valid_agencies = counts[counts >= 45].sort_values().index
 
 # Filtriraj DataFrame, da vsebuje le validne agencije
-filtered_df = kvadrati_cene[(kvadrati_cene['prodajalec_agencija'].isin(valid_agencies))]
-filtered_df = filtered_df[(kvadrati_cene["vrsta"] == "Stanovanje") | (kvadrati_cene["vrsta"] == "Hiša")]
+filtered_df = filtered_df2[(filtered_df2['prodajalec_agencija'].isin(valid_agencies))]
+filtered_df = filtered_df[(filtered_df2["vrsta"] == "Stanovanje") | (filtered_df2["vrsta"] == "Hiša")]
 
 ordered_agencies = counts[counts >= 45].sort_values(ascending=False).index
 
