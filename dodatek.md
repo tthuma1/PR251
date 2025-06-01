@@ -11,3 +11,7 @@ Za branje podatkov v Pythonu smo uporabili `pandas` knjižnico, grafe pa smo ris
 ### Cena v odvnisnosti od demografskih atributov
 
 Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v regijah, kjer je več ločitev. Novo ločeni ljudje namreč običajno rabijo tudi novo nepremičnino.
+
+### Analiza iz slik
+
+Pri učenju so veliko težav povzročile fotografije, ki slabo predstavijo nepremičnino npr., ko je namesto hiše slikan bližnji gozd. Take fotografije smo deloma počistili z ročnim pregledom. Za učenje modela nam je ostalo okoli 44.000 fotografij. Model smo testirali na 1.000 fotografijah oglasov, ki so bili objavljeni po prvotnem zbiranju oglasov.

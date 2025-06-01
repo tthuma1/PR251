@@ -5,11 +5,11 @@ Streamlit aplikacija je objavljena na [https://pr251-nepremicnine1.streamlit.app
 ## Opis problema
 
 V seminarski nalogi se osredetočamo na pridobivanje znanj z analizo nepremičninskih oglasov, ki so objavljeni v aprilu 2025. Naša glavna vprašanja oz. cilji so:
-- Ali se nakup novogradenj bolj splača od nakupa starejših nepremičnin?
-- Katere nepremičninske agencije ponujajo najboljše ponudbe?
-- Kako se nepremičninski trg sklada s prebivalstvom posamezne regije?
-- Kateri atributi najbolj vplivajo na ceno nepremičnin?
-- Ustvarjanje napovednih modelov cene iz atributov, slik in opisov.
+- RQ1: Ali se nakup novogradenj bolj splača od nakupa starejših nepremičnin?
+- RQ2: Katere nepremičninske agencije ponujajo najboljše ponudbe?
+- RQ3: Kako se nepremičninski trg sklada s prebivalstvom posamezne regije?
+- RQ4: Kateri atributi najbolj vplivajo na ceno nepremičnin?
+- RQ5: Ustvarjanje napovednih modelov cene iz atributov, slik in opisov.
 
 V glavnem smo se osredotočili na oglase za prodajo hiš in stanovanj.
 
@@ -40,7 +40,7 @@ Kot pričakovano, so novogradnje poleg višje cene tudi bolj energetsko učinkov
 
 <img src="slike/energija_leto.png" width="700" />
 
-Za novogradnje bomo torej odšteli več denarja, ampak običajno dobimo boljši produkt. Kljub temu trdimo, da se nakup nepremičnin, ki so starejše okoli 5 let bolj splača od nakupa novogradenj.
+Za novogradnje bomo torej odšteli več denarja, ampak običajno dobimo boljši produkt. Kljub temu trdimo, da se nakup nepremičnin, ki so starejše okoli 5 let bolj splača od nakupa novogradenj (RQ1).
 
 Poglejmo si še, kje se nahaja največ novogradenj:
 
@@ -57,7 +57,7 @@ Pogledali smo, kolikšen delež nepremičninskega trga zaseda posamezna agencija
 
 Vidimo, da velike franšize, kot so CENTURY 21, RE/MAX in KW nimajo ogromnega tržnega deleža. Ta je namreč dokaj enakomerno razporejen med stotine manjših agencij.
 
-Samo s pogledom na cene je težko določiti, katera agencija ima najboljše ponudbe, saj vsaka agencija prodaja velik spekter vrst nepremičnin. Njena povprečna cena se tako prilagodi vrsti nepremičnine, ki jo najpogosteje prodajajo (luksuzne vile ali zanemarjene hiše). Trdimo torej, da ne moremo določiti ene najboljše agencije, saj se vse prilagodijo razmeram na trgu.
+Samo s pogledom na cene je težko določiti, katera agencija ima najboljše ponudbe, saj vsaka agencija prodaja velik spekter vrst nepremičnin. Njena povprečna cena se tako prilagodi vrsti nepremičnine, ki jo najpogosteje prodajajo (luksuzne vile ali zanemarjene hiše). Trdimo torej, da ne moremo določiti ene najboljše agencije, saj se vse prilagodijo razmeram na trgu (RQ2).
 
 Glej [dodatek.md](dodatek.md).
 
@@ -72,13 +72,13 @@ Na prvem zemljevidu lahko opazujemo regije, ki imajo veliko ponudbo nepremičnin
 
 Na naslednjem zemljevidu vidimo razmerje med povprečno ceno nepremičnin in povprečno neto plačo prebivalcev te regije. To nam pove, koliko mesecev bi prebivalec neke regije moral delati, da bi si lahko privoščil povprečno stanovanje/hišo, brez da upoštevamo druge mesečne stroške. Na tem zemljevidu prevladujeta Osrednjeslovenska in Obalno-kraška regija. Najbolj ugodne regije pa so Zasavksa, Primorsko-notranjska in Pomurska regija.
 
-Iz zgornjih grafov sklepamo, da je po večini prodaja nepremičnin v skladu s povpraševanjem. Kot regijo s preveč prodaje smo označili Obalno-kraško. V Osrednjeslovnski in Gorenjski regiji vidimo, da je oglasov sicer dovolj, ampak so cenovno nedostopni. Prostor za razširitev prodaje smo zaznali v Zasavki in Primorsko-notranjski regiji, kjer je zaenkrat relativno malo oglasov, ki so precej poceni. Tu pa se je treba spomniti, da ti dve regiji ne vključujeta večjih gospodarskih središč, kar lahko odvrne kupce.
+Iz zgornjih grafov sklepamo (RQ3), da je po večini prodaja nepremičnin v skladu s povpraševanjem. Kot regijo s preveč prodaje smo označili Obalno-kraško. V Osrednjeslovnski in Gorenjski regiji vidimo, da je oglasov sicer dovolj, ampak so cenovno nedostopni. Prostor za razširitev prodaje smo zaznali v Zasavki in Primorsko-notranjski regiji, kjer je zaenkrat relativno malo oglasov, ki so precej poceni. Tu pa se je treba spomniti, da ti dve regiji ne vključujeta večjih gospodarskih središč, kar lahko odvrne kupce.
 
 Glej [dodatek.md](dodatek.md).
 
 ### Pomembnost atributov
 
-Pri napovedovanju cene z uporabo metode odločitvenih dreves je, če ocenjujemo glede na tip, regijo in površino nepremičnine (pri čemer na neštevilskih atributih uporabimo metodo one-hot encoding), najbolj pomemben atribut površina (pomembnost okoli 0,73), sledita pa mu tip nepremičnine in regija. Če pa napovedujemo ceno/m², torej le glede na tip in regijo, je najpomembnejši atribut, ali je nepremičnina tipa posest (pomembnost okoli 0,47), sledijo pa ostali tipi nepremičnin in regija. Na spodnjih slikah vidimo grafični prikaz pomembnosti atributov za absolutno in za relativno ceno.
+Pri napovedovanju cene z uporabo metode odločitvenih dreves je, če ocenjujemo glede na tip, regijo in površino nepremičnine (pri čemer na neštevilskih atributih uporabimo metodo one-hot encoding), najbolj pomemben atribut površina (pomembnost okoli 0,73), sledita pa mu tip nepremičnine in regija (RQ4). Če pa napovedujemo ceno/m², torej le glede na tip in regijo, je najpomembnejši atribut, ali je nepremičnina tipa posest (pomembnost okoli 0,47), sledijo pa ostali tipi nepremičnin in regija. Na spodnjih slikah vidimo grafični prikaz pomembnosti atributov za absolutno in za relativno ceno.
 
 Pomembnost atributov za absolutno ceno:
 
@@ -116,16 +116,18 @@ Iz tega lahko opazimo, da so opisi neprimeren podatek za napovedovanje cen nepre
 
 Večina oglasov ima podanih eno ali več slik nepremičnine. V naši podatkovni množici smo zbrali naslovne fotografije oglasov. Z njimi smo naučili konvolucijsko nevronsko mrežo za napoved cene na kvadratni meter iz podane slike. Za osnovni model smo vzeli ResNet50 mrežo z utežmi, določenimi iz podatkovne zbirke ImageNet-1k z ločljivostjo 224x224. Osnovnemu modelu smo za učenje odklenili zadnjih 20 plasti.
 
-Pri učenju so veliko težav povzročile fotografije, ki slabo predstavijo nepremičnino npr., ko je namesto hiše slikan bližnji gozd. Take fotografije smo deloma počistili z ročnim pregledom. Za učenje modela nam je ostalo okoli 44.000 fotografij. Model smo testirali na 1.000 fotografijah oglasov, ki so bili objavljeni po prvotnem zbiranju oglasov.
-
 V povprečju se model zmoti za 810 EUR/m2 oz. za 33%, kar je precej slabo. Veliko napako pripisujemo veliki količini prej opisanega šuma med slikami. Poleg tega so cene nepremičnin neenakomerno porazdeljene.
+
+Glej [dodatek.md](dodatek.md).
 
 ### Končni napovedni model
 
-Za najbolj natančen model smo vzeli hibrid med modelom, ki napoveduje ceno iz slike, in med modelom, ki napoveduje ceno iz opisnih atributov. Vsak model je obtežen z 0,5. Z njim smo prišli do povprečne napake 28%. Model je najbolj točen pri primerih okoli povprečne cene (približno 3.000 EUR/m2), kar je razvidno tudi iz spodnjega grafa napak.
+Za najbolj natančen model (RQ5) smo vzeli hibrid med modelom, ki napoveduje ceno iz slike, in med modelom, ki napoveduje ceno iz opisnih atributov. Vsak model je obtežen z 0,5. Z njim smo prišli do povprečne napake 28%, če za drugi model vzamemo Gradient Boosting. Model je najbolj točen pri primerih okoli povprečne cene (približno 3.000 EUR/m2), kar je razvidno tudi iz spodnjega grafa napak.
 
 <img src="slike/image_napake.png" width=600 />
 
+V primerjavi z Zillow Zestimate, ki ima povprečno napako 7% ([https://www.zillow.com/z/zestimate/](https://www.zillow.com/z/zestimate/)), je naš model zelo slab.
+
 ### Interaktivni zemljevid
 
-V streamlitu smo implementirali zemljevid, ki prikazuje porazdelitev nepremičnin po Sloveniji. Z uporabo filtrov za ceno in leto gradnje lahko preverimo npr. kje se nahajajo najdražje ali najcenejše nepremičnine ter v katerih regijah je več novogradenj. Tako lahko enostavno primerjamo med različnimi območji in morda prepoznamo trende na trgu kot so območja z intenzivnejšo gradnjo.
+V streamlitu smo implementirali zemljevid, ki prikazuje porazdelitev nepremičnin po Sloveniji. Z uporabo filtrov za ceno in leto gradnje lahko preverimo npr. kje se nahajajo najdražje ali najcenejše nepremičnine ter v katerih regijah je več novogradenj. Tako lahko enostavno primerjamo med različnimi območji in morda prepoznamo trende na trgu kot so območja z intenzivnejšo gradnjo. Vabljeni na [https://pr251-nepremicnine1.streamlit.app/](https://pr251-nepremicnine1.streamlit.app/).
