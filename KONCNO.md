@@ -101,7 +101,7 @@ Model je najbolj točen pri slikah, ki so blizu povprečja, kot je razvidno iz s
 
 <img src="slike/image_napake.png" width=600 />
 
-V povprečju se model zmoti za 810 EUR/m2 oz. za 33%, kar je precej slabo. Veliko napako pripisujemo veliki količini prej opisanega šuma med slikami.
+V povprečju se model zmoti za 810 EUR/m2 oz. za 33%, kar je precej slabo. Veliko napako pripisujemo veliki količini prej opisanega šuma med slikami. Poleg tega so cene nepremičnin neenakomerno porazdeljene.
 
 ### Regresor
 
