@@ -81,7 +81,7 @@ Iz zgornjih grafov sklepamo, da je po večini prodaja nepremičnin v skladu s po
 
 ### Pomembnost atributov
 
-Pri napovedovanju cene z uporabo metode odločitvenih dreves je, če ocenjujemo glede na tip, regijo in površino nepremičnine (pri čemer na neštevilskih atributih uporabimo metodo one-hot encoding), najbolj pomemben atribut površina (pomembnost okoli 0.78). Če pa napovedujemo ceno/m², torej le glede na tip in regijo, je najpomembnejši atribut ali je nepremičnina tipa poslovni prostor (pomembnost okoli 0.45). Na spodnjih slikah vidimo grafični prikaz pomembnosti atributov za absolutno in za relativno ceno.
+Pri napovedovanju cene z uporabo metode odločitvenih dreves je, če ocenjujemo glede na tip, regijo in površino nepremičnine (pri čemer na neštevilskih atributih uporabimo metodo one-hot encoding), najbolj pomemben atribut površina (pomembnost okoli 0,78), sledita pa mu tip nepremičnine in regija. Če pa napovedujemo ceno/m², torej le glede na tip in regijo, je najpomembnejši atribut, ali je nepremičnina tipa posest (pomembnost okoli 0,45), sledijo pa ostali tipi nepremičnin in regija. Na spodnjih slikah vidimo grafični prikaz pomembnosti atributov za absolutno in za relativno ceno.
 
 Pomembnost atributov za absolutno ceno:
 <img src="slike/atributi_absolute.png" width=600 />
