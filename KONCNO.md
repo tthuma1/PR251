@@ -91,7 +91,8 @@ R² na testnem setu (RandomForest5): 0.43190956529848945
 R² na testnem setu (RandomForest6): 0.4549999146831979
 R² na testnem setu (GradientBoosting): 0.46266591862521667
 R² na testnem setu (KNN): -0.005953077114646987
-R² na testnem setu (MLP): -0.44082198062659184```
+R² na testnem setu (MLP): -0.44082198062659184
+```
 
 ### Pomembnost atributov
 
