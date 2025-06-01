@@ -15,11 +15,9 @@ Do vmesnega poročila smo zbrali vse ustrezne podatke in jih predstavili z razni
 ## Zajemanje podatkov
 
 Podatke smo zajemali iz spletnih strani [nepremicnine.net](https://nepremicnine.net), [mojikvadrati.com](https://mojikvadrati.com) in [bolha.com](https://bolha.com).
-Skupaj smo zbrali nad 70.000 oglasov, ki smo jih zapisali v `csv` datoteke. Podrobnejši postopek zajemanja je predstavljen v datoteki [podatki.md](podatki.md).
+Skupaj smo zbrali nad 70.000 oglasov, ki smo jih zapisali v `csv` datoteke. Podrobnejši postopek zajemanja je predstavljen v datoteki [dodatek.md](dodatek.md).
 
 ## Vizualizacije
-
-Za branje podatkov v Pythonu smo uporabili `pandas` knjižnico, grafe pa smo risali z `matplotlib` in `seaborn`. Za risanje podatkov na zemljevidu smo uporabili `cartopy` in `geopandas` knjižnici.
 
 ### Splošni pogled na cene
 
@@ -60,7 +58,8 @@ Vidimo, da velike franšize, kot so CENTURY 21, RE/MAX in KW nimajo ogromnega tr
 
 Samo s pogledom na cene je težko določiti, katera agencija ima najboljše ponudbe, saj vsaka agencija prodaja velik spekter vrst nepremičnin. Njena povprečna cena se tako prilagodi vrsti nepremičnine, ki jo najpogosteje prodajajo (luksuzne vile ali zanemarjene hiše). Vidimo, da obstajajo agencije, ki se osredotočajo na nepremičnine z nizko vrednostjo (RENES, Agenti, LAND), nihče pa se ne osredotoča samo na luksuzne nepremičnine, čeprav se Ljubljana nepremičnine in INFINIS temu približata.
 
-V prihodnosti bomo z napovednim modelom za cene lahko ocenili, kako poštene so cene posameznih agencij in kako močno cene novogradenj odstopajo od pričakovanj.
+Glej [dodatek.md](dodatek.md).
+
 
 ### Cena v odvnisnosti od demografskih atributov
 
@@ -71,10 +70,9 @@ Na prvem zemljevidu lahko opazujemo regije, ki imajo veliko ponudbo nepremičnin
 
 Na naslednjem zemljevidu pa vidimo razmerje med povprečno ceno nepremičnin in povprečno neto plačo prebivalcev te regije. To nam pove, koliko mesecev bi prebivalec neke regije moral delati, da bi si lahko privoščil povprečno stanovanje/hišo, brez da upoštevamo druge mesečne stroške. Na tem zemljevidu prevladujeta Osrednjeslovenska in Obalno-kraška regija. Najbolj ugodne regije pa so Zasavksa, Primorsko-notranjska in Pomurska regija.
 
-Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v regijah, kjer je več ločitev. Novo ločeni ljudje namreč običajno rabijo tudi novo nepremičnino.
-
 Iz zgornjih grafov sklepamo, da je po večini prodaja nepremičnin v skladu s povpraševanjem. Kot regijo s preveč prodaje smo označili Obalno-kraško. V Osrednjeslovnski in Gorenjski regiji vidimo, da je oglasov sicer dovolj, ampak so cenovno nedostopni. Prostor za razširitev prodaje smo zaznali v Zasavki in Primorsko-notranjski regiji, kjer je zaenkrat relativno malo oglasov, ki so precej poceni. Tu pa se je treba spomniti, da ti dve regiji ne vključujeta večjih gospodarskih središč, kar lahko odvrne kupce.
 
+Glej [dodatek.md](dodatek.md).
 
 ### Pomembnost atributov
 
