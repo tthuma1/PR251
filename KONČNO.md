@@ -1,6 +1,6 @@
 # Ko kvadratni metri spregovorijo – ali so slovenske nepremičnine "kuhane"?
 
-Streamlit aplikacija je objavljena na [https://pr251-nepremicnine1.streamlit.app/](https://pr251-nepremicnine1.streamlit.app/).
+Streamlit aplikacija je objavljena na [https://pr251-nepremicnine3.streamlit.app/](https://pr251-nepremicnine3.streamlit.app/).
 
 ## Opis problema
 
@@ -130,4 +130,4 @@ V primerjavi z Zillow Zestimate, ki ima povprečno napako 7% ([https://www.zillo
 
 ### Interaktivni zemljevid
 
-V streamlitu smo implementirali zemljevid, ki prikazuje porazdelitev nepremičnin po Sloveniji. Z uporabo filtrov za ceno in leto gradnje lahko preverimo npr. kje se nahajajo najdražje ali najcenejše nepremičnine ter v katerih regijah je več novogradenj. Tako lahko enostavno primerjamo med različnimi območji in morda prepoznamo trende na trgu kot so območja z intenzivnejšo gradnjo. Vabljeni na [https://pr251-nepremicnine1.streamlit.app/](https://pr251-nepremicnine1.streamlit.app/).
+V streamlitu smo implementirali zemljevid, ki prikazuje porazdelitev nepremičnin po Sloveniji. Z uporabo filtrov za ceno in leto gradnje lahko preverimo npr. kje se nahajajo najdražje ali najcenejše nepremičnine ter v katerih regijah je več novogradenj. Tako lahko enostavno primerjamo med različnimi območji in morda prepoznamo trende na trgu kot so območja z intenzivnejšo gradnjo. Vabljeni na [https://pr251-nepremicnine3.streamlit.app/](https://pr251-nepremicnine3.streamlit.app/).
