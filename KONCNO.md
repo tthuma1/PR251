@@ -1,5 +1,7 @@
 # Ko kvadratni metri spregovorijo – ali so slovenske nepremičnine "kuhane"?
 
+Streamlit aplikacija je objavljena na [https://pr251-nepremicnine.streamlit.app/]().
+
 ## Opis problema
 
 V seminarski nalogi se osredetočamo na pridobivanje znanj z analizo nepremičninskih oglasov, ki so objavljeni v aprilu 2025. Naša glavna vprašanja oz. cilji so:
