@@ -79,9 +79,23 @@ Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v r
 
 Iz zgornjih grafov sklepamo, da je po večini prodaja nepremičnin v skladu s povpraševanjem. Kot regijo s preveč prodaje smo označili Obalno-kraško. V Osrednjeslovnski in Gorenjski regiji vidimo, da je oglasov sicer dovolj, ampak so cenovno nedostopni. Prostor za razširitev prodaje smo zaznali v Zasavki in Primorsko-notranjski regiji, kjer je zaenkrat relativno malo oglasov, ki so precej poceni. Tu pa se je treba spomniti, da ti dve regiji ne vključujeta večjih gospodarskih središč, kar lahko odvrne kupce.
 
+### Regresor
+
+Uporabili smo več različnih regresijskih modelov za napovedovanje cene glede na površino, regijo in tip nepremičnine. Najboljše rezultate, glede na prečno preverjanje, sta dala GradientBoosting in RandomForestRegressor, pri katerem sta bili optimalni globini 5 in 6 (R^2^ med 0,3 in 0,5). Modeli LinearRegression, Ridge in Lasso so nekoliko slabši z R^2^ med 0 in 1,5, medtem ko R^2^ modelov KNeighborsRegressor in MLPRegressor pogosto ne preseže 0.
+
+Primer prečne validacije na testni množici velikosti 0,2:
+`R² na testnem setu (LinearRegression): 0.10430657870022642
+R² na testnem setu (Ridge): 0.08497044209656046
+R² na testnem setu (Lasso): 0.12098481134349481
+R² na testnem setu (RandomForest5): 0.43190956529848945
+R² na testnem setu (RandomForest6): 0.4549999146831979
+R² na testnem setu (GradientBoosting): 0.46266591862521667
+R² na testnem setu (KNN): -0.005953077114646987
+R² na testnem setu (MLP): -0.44082198062659184`
+
 ### Pomembnost atributov
 
-Pri napovedovanju cene z uporabo metode odločitvenih dreves je, če ocenjujemo glede na tip, regijo in površino nepremičnine (pri čemer na neštevilskih atributih uporabimo metodo one-hot encoding), najbolj pomemben atribut površina (pomembnost okoli 0,78), sledita pa mu tip nepremičnine in regija. Če pa napovedujemo ceno/m², torej le glede na tip in regijo, je najpomembnejši atribut, ali je nepremičnina tipa posest (pomembnost okoli 0,45), sledijo pa ostali tipi nepremičnin in regija. Na spodnjih slikah vidimo grafični prikaz pomembnosti atributov za absolutno in za relativno ceno.
+Pri napovedovanju cene z uporabo metode odločitvenih dreves je, če ocenjujemo glede na tip, regijo in površino nepremičnine (pri čemer na neštevilskih atributih uporabimo metodo one-hot encoding), najbolj pomemben atribut površina (pomembnost okoli 0,73), sledita pa mu tip nepremičnine in regija. Če pa napovedujemo ceno/m², torej le glede na tip in regijo, je najpomembnejši atribut, ali je nepremičnina tipa posest (pomembnost okoli 0,47), sledijo pa ostali tipi nepremičnin in regija. Na spodnjih slikah vidimo grafični prikaz pomembnosti atributov za absolutno in za relativno ceno.
 
 Pomembnost atributov za absolutno ceno:
 <img src="slike/atributi_absolute.png" width=600 />
@@ -103,7 +117,6 @@ Model je najbolj točen pri slikah, ki so blizu povprečja, kot je razvidno iz s
 
 V povprečju se model zmoti za 810 EUR/m2 oz. za 33%, kar je precej slabo. Veliko napako pripisujemo veliki količini prej opisanega šuma med slikami. Poleg tega so cene nepremičnin neenakomerno porazdeljene.
 
-### Regresor
 
 ### Interaktivni zemljevid
 
