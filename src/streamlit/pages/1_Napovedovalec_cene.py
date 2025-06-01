@@ -45,8 +45,8 @@ if uploaded_file is not None:
             img_array = preprocess_image(uploaded_file)
             pred_scaled = model.predict(img_array).flatten()[0]
             print(pred_scaled)
-            pred_price = np.expm1(pred_scaled);
-            st.success(f"Napovedana cena: **{pred_price:,.2f} €/m2**")
+            image_prediction = np.expm1(pred_scaled)
+            # st.success(f"Napovedana cena: **{image_prediction:,.2f} €/m2**")
         except Exception as e:
             st.error(f"Napaka: {e}")
 
@@ -163,7 +163,7 @@ with col1:
     )
 
 with col2:
-    selected_area = st.number_input(label="Vpišite površino:", min_value=0.0, step=0.01, value=80.0)
+    selected_area = st.number_input(label="Vpišite površino:", min_value=1.0, step=0.01, value=80.0)
 
     selected_model = st.selectbox(
         "Izberite model:",
@@ -174,3 +174,10 @@ pipeline = get_pipeline(model=selected_model, data=nepremicnine_reg)
 
 new_data = pd.DataFrame({'correct_region': [selected_region], 'type': [selected_type], 'size': [selected_area]})
 prediction = pipeline.predict(new_data)
+attr_prediction = round(prediction[0], 2) / selected_area
+
+
+if uploaded_file is None:
+    st.success(f"Napovedana cena: **{attr_prediction:,.2f} €/m2**")
+else:
+    st.success(f"Napovedana cena: **{0.5*attr_prediction + 0.5*image_prediction:,.2f} €/m2**")
