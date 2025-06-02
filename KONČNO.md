@@ -37,7 +37,7 @@ Da smo preverili, ali starost gradnje vpliva na ceno, smo narisali razsevni diag
 
 <img src="slike/cena_leto.png" width="700" />
 
-Vidimo, da ima starost gradnje nizko stopnjo korelacije s ceno. To nam pove tudi nizek Pearsonov koeficient (0,17). Stare nepremičnine so namreč pogosto adaptirane (v povprečju po 75 letih), zaradi česar jim vrednost ne pada. Res pa je, da je povprečna cena na kvadratni meter nepremičnin zgrajenih po letu 2020 kar za 26% višja od povprečne cene ostalih nepremičnin (2970 proti 3740 EUR/m²).
+Vidimo, da ima starost gradnje nizko stopnjo korelacije s ceno. To nam pove tudi nizek Pearsonov koeficient (0,17). Stare nepremičnine so namreč pogosto adaptirane (v povprečju po 75 letih), zaradi česar jim vrednost ne pada. Res pa je, da je povprečna cena na kvadratni meter nepremičnin, zgrajenih po letu 2020, kar za 26% višja od povprečne cene ostalih nepremičnin (2970 proti 3740 EUR/m²).
 
 Kot pričakovano, so novogradnje poleg višje cene tudi bolj energetsko učinkovite, kar je vidno na spodnjem grafu.
 
@@ -57,7 +57,7 @@ Pogledali smo, katera agencija ima v povprečju najboljše ponudbe. Spodnji graf
 
 <img src="slike/prodajalci_cene.png" width=1000/>
 
-Samo s pogledom na cene je težko določiti, katera agencija ima najboljše ponudbe, saj vsaka agencija prodaja velik spekter vrst nepremičnin. Njena povprečna cena se tako prilagodi vrsti nepremičnine, ki jo najpogosteje prodajajo (luksuzne vile ali zanemarjene hiše). Trdimo torej, da ne moremo določiti najboljših agencij, saj se vse prilagodijo razmeram na trgu (RQ2).
+Samo s pogledom na cene je težko določiti, katera agencija ima najboljše ponudbe, saj vsaka agencija prodaja velik spekter vrst nepremičnin. Njena povprečna cena se tako prilagodi vrsti nepremičnine, ki jo najpogosteje prodaja (luksuzne vile ali zanemarjene hiše). Trdimo torej, da ne moremo določiti najboljših agencij, saj se vse prilagodijo razmeram na trgu (RQ2).
 
 ### Cena v odvnisnosti od demografskih atributov
 
@@ -69,13 +69,13 @@ Na prvem zemljevidu lahko opazujemo regije, ki imajo veliko ponudbo nepremičnin
 
 Na naslednjem zemljevidu vidimo razmerje med povprečno ceno nepremičnin in povprečno neto plačo prebivalcev te regije. To nam pove, koliko mesecev bi prebivalec neke regije moral delati, da bi si lahko privoščil povprečno stanovanje/hišo, brez da upoštevamo druge mesečne stroške. Na tem zemljevidu prevladujeta Osrednjeslovenska in Obalno-kraška regija. Najbolj ugodne regije pa so Zasavksa, Primorsko-notranjska in Pomurska regija.
 
-Iz zgornjih grafov smo kot regijo s preveč prodaje označili Obalno-kraško. V Osrednjeslovnski in Gorenjski regiji vidimo, da je oglasov sicer dovolj, ampak so cenovno nedostopni. Prostor za razširitev prodaje smo zaznali v Zasavski in Primorsko-notranjski regiji, kjer je zaenkrat relativno malo oglasov, ki so precej poceni. Tu pa se je treba spomniti, da ti dve regiji ne vključujeta večjih gospodarskih središč, kar lahko odvrne kupce. Okolica Maribora in Celja (Podravska in Savinjska regija) na zemljevidih izgledata kot najbolj primerna prostora za iskanje nepremičnine, saj vsebujeta relativno veliko oglasov po relativno nizki ceni (RQ3).
+Iz zgornjih grafov smo kot regijo s preveč prodaje označili Obalno-kraško. V Osrednjeslovenski in Gorenjski regiji vidimo, da je oglasov sicer dovolj, ampak so cenovno nedostopni. Prostor za razširitev prodaje smo zaznali v Zasavski in Primorsko-notranjski regiji, kjer je zaenkrat relativno malo oglasov, ki so precej poceni. Tu pa se je treba spomniti, da ti dve regiji ne vključujeta večjih gospodarskih središč, kar lahko odvrne kupce. Okolica Maribora in Celja (Podravska in Savinjska regija) na zemljevidih izgledata kot najbolj primerna prostora za iskanje nepremičnine, saj vsebujeta relativno veliko oglasov po relativno nizki ceni (RQ3).
 
 Glej [dodatek.md](dodatek.md).
 
 ## Pomembnost atributov
 
-Pri napovedovanju cene z uporabo metode odločitvenih dreves je, če ocenjujemo glede na tip, regijo in površino nepremičnine (pri čemer na neštevilskih atributih uporabimo metodo one-hot encoding), najbolj pomemben atribut površina (pomembnost okoli 0,73), sledita pa mu tip nepremičnine in regija (RQ4). Če pa napovedujemo ceno/m², torej le glede na tip in regijo, je najpomembnejši atribut, ali je nepremičnina tipa posest, sledijo pa ostali tipi nepremičnin in regije. Izmed regij je v obeh primerih najpomembnejša Osrednjeslovenska, nato pa Obalno-kraška. Na spodnjih slikah vidimo grafični prikaz pomembnosti atributov za absolutno in za relativno ceno.
+Pri napovedovanju cene z uporabo metode odločitvenih dreves je, če ocenjujemo glede na tip, regijo in površino nepremičnine (pri čemer na neštevilskih atributih uporabimo metodo one-hot encoding), najbolj pomemben atribut površina (pomembnost okoli 0,73), sledita pa mu tip nepremičnine in regija (RQ4). Če pa napovedujemo ceno/m², torej le glede na tip in regijo, je najpomembnejši atribut, ali je nepremičnina tipa posest, sledijo pa ostali tipi nepremičnin in regije. Izmed regij je v obeh primerih najpomembnejša Osrednjeslovenska, nato pa Obalno-kraška. Najpomembnejši tip nepremičnine je posest, sledita pa stanovanje in hiša. Na spodnjih slikah vidimo grafični prikaz pomembnosti atributov za absolutno in za relativno ceno.
 
 Pomembnost atributov za absolutno ceno:
 
@@ -95,7 +95,7 @@ Uporabili smo več različnih regresijskih modelov za napovedovanje cene glede n
 ### Napoved cene iz opisa
 
 Za učenje modela smo besedilne opise pretvoriti v vektorje z uporabo knjižnice `sentence_transformers` in modela `all-MiniLM-L6-v2`.
-Linearni regresijski model (RandomForest, Ridge, Lasso, ...) nam niso vrnili dobrih rezultatov,
+Linearni regresijski modeli (RandomForest, Ridge, Lasso, ...) nam niso vrnili dobrih rezultatov,
 zato smo v drugem koraku uporabili jezikovni model BERT (`bert-base-multilingual-cased`), ki pa prav tako ni vrnil uporabnega modela.
 
 Iz tega lahko opazimo, da so opisi neprimeren podatek za napovedovanje cen nepremičnin.
@@ -110,11 +110,11 @@ Glej [dodatek.md](dodatek.md).
 
 ### Končni napovedni model
 
-Za najbolj natančen model (RQ5) smo vzeli hibrid med modelom, ki napoveduje ceno iz slike, in med modelom, ki napoveduje ceno iz opisnih atributov. Modela sta enakomerno obtežena. S končnim modelom smo prišli do povprečne napake 28%, če za drugi model vzamemo Gradient Boosting. Model je najbolj točen pri primerih okoli povprečne cene (približno 3.000 EUR/m²), kar je razvidno tudi iz spodnjega grafa napak.
+Za najbolj natančen model (RQ5) smo vzeli hibrid med modelom, ki napoveduje ceno iz slike, in med modelom, ki napoveduje ceno iz opisnih atributov. Modela sta enakomerno obtežena. S končnim modelom smo prišli do povprečne napake 28%, če za drugi model vzamemo Gradient Boosting. Model je najbolj točen pri primerih okoli povprečne cene (približno 3.000 EUR/m²), kar je razvidno tudi iz spodnjega grafa napak na testni množici.
 
 <img src="slike/image_napake.png" width=600 />
 
-V primerjavi z Zillow Zestimate, ki ima povprečno napako 7% ([https://www.zillow.com/z/zestimate/](https://www.zillow.com/z/zestimate/)), je naš model zelo slab.
+V primerjavi z Zillow Zestimate, ki ima povprečno napako 7% ([https://www.zillow.com/z/zestimate/](https://www.zillow.com/z/zestimate/)), je naš model zelo slab. Glavna izboljšava, ki bi jo morali izvesti, je temeljito ročno čiščenje nereprezentativnih oglasov (šuma). Vključitev ostalih, manj pomembnih opisnih atributov, nima bistvenega vpliva na točnost.
 
 ### Interaktivni zemljevid
 
