@@ -31,9 +31,9 @@ if filter_year:
     min_year = int(df['leto_gradnje'].min(skipna=True))
     col1, col2 = st.columns(2)
     with col1:
-        year_min_input = st.number_input("Min. leto gradnje", min_value=min_year, max_value=2025, value=min_year)
+        year_min_input = st.number_input("Min. leto gradnje", min_value=min_year, max_value=2025, value=min_year, key="min_leto")
     with col2:
-        year_max_input = st.number_input("Max. leto gradnje", min_value=min_year, max_value=2025, value=2025)
+        year_max_input = st.number_input("Max. leto gradnje", min_value=min_year, max_value=2025, value=2025, key="max_leto")
 else:
     year_min_input = df['leto_gradnje'].min()
     year_max_input = df['leto_gradnje'].max()
@@ -44,9 +44,9 @@ if filter_cena:
     max_cena = int(df['cena'].max(skipna=True))
     col3, col4 = st.columns(2)
     with col3:
-        cena_min_input = st.number_input("Min. cena", min_value=0, max_value=max_cena, value=min_cena)
+        cena_min_input = st.number_input("Min. cena", min_value=0, max_value=max_cena, value=min_cena, key="min_cena")
     with col4:
-        cena_max_input = st.number_input("Max. cena", min_value=0, max_value=max_cena, value=max_cena)
+        cena_max_input = st.number_input("Max. cena", min_value=0, max_value=max_cena, value=max_cena, key="max_cena")
 else:
     cena_min_input = df['cena'].min()
     cena_max_input = df['cena'].max()
@@ -105,9 +105,9 @@ if filter_year:
     min_year = int(df['leto_gradnje'].min(skipna=True))
     col1, col2 = st.columns(2)
     with col1:
-        year_min_input = st.number_input("Min. leto gradnje", min_value=min_year, max_value=2025, value=min_year)
+        year_min_input = st.number_input("Min. leto gradnje", min_value=min_year, max_value=2025, value=min_year, key="pon_min_l")
     with col2:
-        year_max_input = st.number_input("Max. leto gradnje", min_value=min_year, max_value=2025, value=2025)
+        year_max_input = st.number_input("Max. leto gradnje", min_value=min_year, max_value=2025, value=2025, key="pon_max_l")
 else:
     year_min_input = df['leto_gradnje'].min()
     year_max_input = df['leto_gradnje'].max()
@@ -118,9 +118,9 @@ if filter_cena:
     max_cena = int(df['cena'].max(skipna=True))
     col3, col4 = st.columns(2)
     with col3:
-        cena_min_input = st.number_input("Min. cena", min_value=0, max_value=max_cena, value=min_cena)
+        cena_min_input = st.number_input("Min. cena", min_value=0, max_value=max_cena, value=min_cena, key="pon_min_c")
     with col4:
-        cena_max_input = st.number_input("Max. cena", min_value=0, max_value=max_cena, value=max_cena)
+        cena_max_input = st.number_input("Max. cena", min_value=0, max_value=max_cena, value=max_cena, key="pon_max_c")
 else:
     cena_min_input = df['cena'].min()
     cena_max_input = df['cena'].max()
