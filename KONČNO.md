@@ -73,7 +73,7 @@ Iz zgornjih grafov smo kot regijo s preveč prodaje označili Obalno-kraško. V 
 
 Glej [dodatek.md](dodatek.md).
 
-### Pomembnost atributov
+## Pomembnost atributov
 
 Pri napovedovanju cene z uporabo metode odločitvenih dreves je, če ocenjujemo glede na tip, regijo in površino nepremičnine (pri čemer na neštevilskih atributih uporabimo metodo one-hot encoding), najbolj pomemben atribut površina (pomembnost okoli 0,73), sledita pa mu tip nepremičnine in regija (RQ4). Če pa napovedujemo ceno/m², torej le glede na tip in regijo, je najpomembnejši atribut, ali je nepremičnina tipa posest, sledijo pa ostali tipi nepremičnin in regije. Izmed regij je v obeh primerih najpomembnejša Osrednjeslovenska, nato pa Obalno-kraška. Na spodnjih slikah vidimo grafični prikaz pomembnosti atributov za absolutno in za relativno ceno.
 
@@ -84,6 +84,8 @@ Pomembnost atributov za absolutno ceno:
 Pomembnost atributov za relativno ceno:
 
 <img src="slike/atributi_relative.png" width=900 />
+
+## Napovedni model
 
 ### Napoved cene z regresijo
 

@@ -12,7 +12,7 @@ Za branje podatkov v Pythonu smo uporabili `pandas` knjižnico, grafe pa smo ris
 
 Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v regijah, kjer je več ločitev. Novo ločeni ljudje namreč običajno rabijo tudi novo nepremičnino. Bistvene povezave med številom ločitev in številom oglasov ni.
 
-### Analiza iz slik
+### Napoved cene iz slik
 
 Pri učenju so nam veliko težav povzročile fotografije, ki slabo predstavijo nepremičnino, npr. ko je namesto hiše slikan bližnji gozd. Take fotografije smo deloma počistili z ročnim pregledom. Za učenje modela nam je ostalo okoli 44.000 fotografij. Model smo testirali na 1.000 fotografijah oglasov, ki so bili objavljeni po prvotnem zbiranju oglasov.
 
