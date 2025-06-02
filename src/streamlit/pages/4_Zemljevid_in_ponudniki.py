@@ -16,6 +16,16 @@ df['longitude'] = pd.to_numeric(df['longitude'], errors='coerce')
 
 df = df.dropna(subset=['latitude', 'longitude'])
 
+def get_velikost(v):
+    split_v = str(v).split()
+    try:
+        return float(split_v[0].replace(',', '.'))
+    except ValueError:
+        return None
+
+df['velikost_clean'] = df['velikost'].apply(get_velikost)
+df['cena_na_m2'] = df['cena'] / df['velikost_clean']
+
 st.title("Nepremičnine po Sloveniji")
 st.markdown(
     """
@@ -154,18 +164,6 @@ with st.spinner("Pripravljam podatke..."):
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-def get_velikost(v):
-    split_v = str(v).split()
-    try:
-        return float(split_v[0].replace(',', '.'))
-    except ValueError:
-        return None
-
-
-
-
-filtered_df2['velikost_clean'] = filtered_df2['velikost'].apply(get_velikost)
-filtered_df2['cena_na_m2'] = filtered_df2['cena'] / filtered_df2['velikost_clean']
 filtered_df2 = filtered_df2[(filtered_df2['cena_na_m2'].notnull()) & (filtered_df2['cena_na_m2'] < 15000) & (filtered_df2['cena_na_m2'] > 50)]
 # kvadrati_cene = df[(df['cena'].notnull())]
 counts = filtered_df2['prodajalec_agencija'].value_counts()
@@ -178,7 +176,7 @@ mean_values = filtered_df2.groupby('prodajalec_agencija')['cena_na_m2'].mean().l
 
 # Filtriraj DataFrame, da vsebuje le validne agencije
 filtered_df = filtered_df2[(filtered_df2['prodajalec_agencija'].isin(valid_agencies))]
-filtered_df = filtered_df[(filtered_df2["vrsta"] == "Stanovanje") | (filtered_df2["vrsta"] == "Hiša")]
+filtered_df = filtered_df[(filtered_df["vrsta"] == "Stanovanje") | (filtered_df["vrsta"] == "Hiša")]
 
 filtered_df = filtered_df[filtered_df['id'].isin(filtered_df2['id'])]
 
