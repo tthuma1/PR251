@@ -57,7 +57,7 @@ Pogledali smo, katera agencija ima v povprečju najboljše ponudbe. Spodnji graf
 
 <img src="slike/prodajalci_cene.png" width=1000/>
 
-Samo s pogledom na cene je težko določiti, katera agencija ima najboljše ponudbe, saj vsaka agencija prodaja velik spekter vrst nepremičnin. Njena povprečna cena se tako prilagodi vrsti nepremičnine, ki jo najpogosteje prodaja (luksuzne vile ali zanemarjene hiše). Trdimo torej, da ne moremo določiti najboljših agencij, saj se vse prilagodijo razmeram na trgu (RQ2).
+Samo s pogledom na cene je težko določiti, katera agencija ima najboljše ponudbe, saj vsaka agencija prodaja velik spekter vrst nepremičnin. Njena povprečna cena se tako prilagodi vrsti nepremičnine, ki jo najpogosteje prodaja (luksuzne vile ali zanemarjene hiše). Trdimo torej, da ne moremo določiti najboljših agencij, saj se vse prilagodijo razmeram na trgu (RQ2). Najmanjša odstopanja od napovednega modela oz. pričakovanih cen imajo agencije Bamba nepremičnine, BCAKTIV in INVESTMOND.
 
 ### Cena v odvnisnosti od demografskih atributov
 
