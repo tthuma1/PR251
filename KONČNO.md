@@ -79,11 +79,11 @@ Pri napovedovanju cene z uporabo metode odločitvenih dreves je, če ocenjujemo 
 
 Pomembnost atributov za absolutno ceno:
 
-<img src="slike/atributi_absolute.png" width=600 />
+<img src="slike/atributi_absolute.png" width=900 />
 
 Pomembnost atributov za relativno ceno:
 
-<img src="slike/atributi_relative.png" width=600 />
+<img src="slike/atributi_relative.png" width=900 />
 
 ### Napoved cene z regresijo
 
@@ -100,7 +100,7 @@ Iz tega lahko opazimo, da so opisi neprimeren podatek za napovedovanje cen nepre
 
 ### Napoved cene iz slik
 
-Večina oglasov ima podanih eno ali več slik nepremičnine. V naši podatkovni množici smo zbrali naslovne fotografije oglasov. Z njimi smo naučili konvolucijsko nevronsko mrežo za napoved cene na kvadratni meter iz podane slike. Za osnovni model smo vzeli ResNet50 mrežo z utežmi, določenimi iz podatkovne zbirke ImageNet-1k z ločljivostjo 224x224. Osnovni model smo nato prilagodili za našo zbirko slik nepremičnin.
+Večina oglasov ima podanih eno ali več slik nepremičnine. V naši podatkovni množici smo zbrali naslovne fotografije oglasov. Z njimi smo naučili konvolucijsko nevronsko mrežo za napoved cene na kvadratni meter iz podane slike. Za osnovni model smo vzeli ResNet50 mrežo z utežmi, določenimi iz podatkovne zbirke ImageNet-1k. Osnovni model smo nato prilagodili za našo zbirko slik nepremičnin.
 
 V povprečju se model zmoti za 810 EUR/m² oz. za 33%, kar je precej slabo. Veliko napako pripisujemo veliki količini šuma med slikami (nekatere slike ne prikazujejo nepremičnine).
 
