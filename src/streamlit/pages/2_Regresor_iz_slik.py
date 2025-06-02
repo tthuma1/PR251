@@ -43,7 +43,7 @@ if uploaded_file is not None:
             pred_scaled = model.predict(img_array).flatten()[0]
             print(pred_scaled)
             pred_price = np.expm1(pred_scaled);
-            st.success(f"Napovedana cena: **{pred_price:,.2f} €/m2**")
+            st.success(f"Napovedana cena: **{pred_price:,.2f} €/m²**")
         except Exception as e:
             st.error(f"Napaka: {e}")
 

@@ -53,7 +53,7 @@ if uploaded_file is not None:
             pred_scaled = model.predict(img_array).flatten()[0]
             print(pred_scaled)
             image_prediction = np.expm1(pred_scaled)
-            # st.success(f"Napovedana cena: **{image_prediction:,.2f} €/m2**")
+            # st.success(f"Napovedana cena: **{image_prediction:,.2f} €/m²**")
         except Exception as e:
             st.error(f"Napaka: {e}")
 
@@ -185,6 +185,6 @@ attr_prediction = round(prediction[0], 2) / selected_area
 
 
 if uploaded_file is None:
-    st.success(f"Napovedana cena: **{attr_prediction:,.2f} €/m2**")
+    st.success(f"Napovedana cena: **{attr_prediction:,.2f} €/m²**")
 else:
-    st.success(f"Napovedana cena: **{0.5*attr_prediction + 0.5*image_prediction:,.2f} €/m2**")
+    st.success(f"Napovedana cena: **{0.5*attr_prediction + 0.5*image_prediction:,.2f} €/m²**")
