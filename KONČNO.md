@@ -43,7 +43,7 @@ Kot pričakovano, so novogradnje poleg višje cene tudi bolj energetsko učinkov
 
 <img src="slike/energija_leto.png" width="700" />
 
-Za novogradnje bomo torej odšteli več denarja, ampak običajno dobimo boljši produkt. Kljub temu trdimo, da se nakup nepremičnin, ki so stare okoli 5 let, bolj splača od nakupa novogradenj (RQ1).
+Za novogradnje bomo torej odšteli več denarja, ampak običajno dobimo boljši produkt. Kljub temu trdimo, da se nakup nepremičnin, ki so stare okoli 5 let, bolj splača od nakupa novogradenj (RQ1), saj iz grafov in izračuna vidimo, da se pri tej starosti razpon cene močno spusti, medtem ko se kvaliteta nepremičnine minimalno zmanjša.
 
 Poglejmo si še, kje se nahaja največ novogradenj:
 
