@@ -25,11 +25,11 @@ model = load_model()
 
 # --- Image preprocessing ---
 def preprocess_uploaded_image(file):
-    image = Image.open(file).convert('RGB')
-    image = image.resize(IMAGE_SIZE)
-    img_array = np.array(image)
-    img_array = preprocess_input(img_array)
-    return tf.expand_dims(img_array, axis=0)  # Add batch dimension
+    image_bytes = file.read()  # 'file' is the file-like object
+    img = tf.image.decode_jpeg(image_bytes, channels=3)
+    img = tf.image.resize(img, IMAGE_SIZE)
+    img = preprocess_input(img)
+    return tf.expand_dims(img, axis=0)  # Add batch dimension
 
 # --- Streamlit UI ---
 st.title("Napovedovanje cene nepremičnine")
