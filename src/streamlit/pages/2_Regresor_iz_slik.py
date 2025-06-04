@@ -3,6 +3,7 @@ import tensorflow as tf
 from PIL import Image
 import numpy as np
 import joblib
+from tensorflow.keras.applications.resnet50 import preprocess_input
 
 # --- Configuration ---
 MODEL_PATH = "src/streamlit/data/image_model.keras"
@@ -16,12 +17,13 @@ def load_model():
 model = load_model()
 
 # --- Image preprocessing ---
-def preprocess_image(uploaded_file):
-    image = Image.open(uploaded_file).convert("RGB")
+def preprocess_uploaded_image(file):
+    image = Image.open(file).convert('RGB')
     image = image.resize(IMAGE_SIZE)
-    image_array = np.array(image) / 255.0
-    image_array = np.expand_dims(image_array, axis=0)  # Add batch dim
-    return image_array
+    img_array = np.array(image)
+    img_array = preprocess_input(img_array)
+    return tf.expand_dims(img_array, axis=0)  # Add batch dimension
+
 
 # --- Streamlit UI ---
 st.title("Napovedovanje cene iz slike nepremičnine")
@@ -39,10 +41,10 @@ if uploaded_file is not None:
 
     with st.spinner("Razmišljam..."):
         try:
-            img_array = preprocess_image(uploaded_file)
-            pred_scaled = model.predict(img_array).flatten()[0]
+            preprocessed_img = preprocess_uploaded_image(uploaded_file)
+            pred_scaled = model.predict(preprocessed_img)
             print(pred_scaled)
-            pred_price = np.expm1(pred_scaled);
+            pred_price = np.expm1(pred_scaled).ravel()[0]  # Assuming single output
             st.success(f"Napovedana cena: **{pred_price:,.2f} €/m²**")
         except Exception as e:
             st.error(f"Napaka: {e}")
