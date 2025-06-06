@@ -6,6 +6,8 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.linear_model import LinearRegression, Ridge, Lasso
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
+import joblib
+from sklearn.svm import SVR
 
 import python_data
 
@@ -89,6 +91,9 @@ def get_pipeline(model, data):
 
     pipeline.fit(X, y)
 
+    # Save the full pipeline
+    # joblib.dump(pipeline, 'svr_pipeline.pkl')
+
     return pipeline
 
 
@@ -100,6 +105,7 @@ models = {
     'Lasso': Lasso(alpha=0.1),
     'RandomForest_depth5': RandomForestRegressor(max_depth=5),
     'RandomForest_depth6': RandomForestRegressor(max_depth=6),
+    'SVR': SVR(kernel='rbf'),
 }
 
 
