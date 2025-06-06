@@ -8,7 +8,17 @@ Vnosom iz zbirke strani `mojikvadrati.com` smo dodali še podatke o koordinatah.
 
 Za branje podatkov v Pythonu smo uporabili `pandas` knjižnico, grafe pa smo risali z `matplotlib` in `seaborn`. Za risanje podatkov na zemljevidu smo uporabili `cartopy` in `geopandas` knjižnici.
 
+### Nepremičninske agencije
+
+ Najmanjša odstopanja od napovednega modela oz. pričakovanih cen imajo agencije Bamba nepremičnine, BCAKTIV in INVESTMOND.
+
 ### Cena v odvnisnosti od demografskih atributov
+
+Spodaj je prikazan zemljevid, kjer so narisane vse cene hiš in stanovanj.
+
+<img src="slike/mapa_cene.png" width=1000/>
+
+Vidimo, da se pojavijo območja, kjer je veliko dragih nepremičnin, kot sta Ljubljana in Obala. Nekaj dragih nepremičnin se pojavi še v krajih, od koder se ljudje pogosto vozijo v Ljubljano, kot so Kranj, Domžale in Grosuplje. Drage nepremičnine se pojavijo še v Jesenicah, Kranjski gori in Novi Gorici. Zanimivo je, da je v okolici Maribora in v Savinjski regiji na voljo veliko nepremičnin, ki pa so relativno poceni.
 
 Kot demografski atribut smo pogledali še, če je na voljo več nepremičnin v regijah, kjer je več ločitev. Novo ločeni ljudje namreč običajno rabijo tudi novo nepremičnino. Bistvene povezave med številom ločitev in številom oglasov ni.
 
