@@ -54,7 +54,7 @@ Na prvem zemljevidu lahko opazujemo regije, ki imajo veliko ponudbo nepremičnin
 
 Iz zgornjih grafov smo kot regijo s preveč prodaje označili Obalno-kraško. V Osrednjeslovenski in Gorenjski regiji vidimo, da je oglasov sicer dovolj, ampak so cenovno nedostopni. Prostor za razširitev prodaje smo zaznali v Zasavski in Primorsko-notranjski regiji, kjer je zaenkrat relativno malo oglasov, ki so precej poceni. Tu pa se je treba spomniti, da ti dve regiji ne vključujeta večjih gospodarskih središč, kar lahko odvrne kupce. Okolica Maribora in Celja (Podravska in Savinjska regija) na zemljevidih izgledata kot najbolj primerna prostora za iskanje nepremičnine, saj vsebujeta relativno veliko oglasov po relativno nizki ceni, hkrati pa sta to večji mesti (RQ3).
 
-V [dodatek.md](dodatek.md) lahko vidimo bolj točne lokacije nepremičnin na zemljevidu.
+V [dodatek.md](dodatek.md) lahko vidimo bolj točne lokacije nepremičnin na zemljevidu, kar otrjuje naše trdive.
 
 ## Pomembnost atributov
 
